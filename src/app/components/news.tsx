@@ -14,10 +14,10 @@ export default function News({ news }: NewsProps) {
 
     return (
         <a href={newUrl} target='_blank'>
-            <div className='flex items-center justify-between px-4 py-2 space-x-1 hover:bg-gray-200 transition duration-200'>
+            <div className='flex items-center justify-between px-4 py-2 space-x-1 hover:bg-arsenic transition duration-200'>
                 <div className='space-y-0.5'>
-                    <h6 className='text-sm font-bold'>{newTitle}</h6>
-                    <p className='text-xs font-medium text-gray-500'>
+                    <h6 className='text-sm font-bold text-white'>{newTitle}</h6>
+                    <p className='text-xs font-semibold text-arsenic hover:text-mySin'>
                         {newDescription}
                     </p>
                 </div>

@@ -2,12 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --mySin: #FEAA26;
+  --arsenic: #3B424c;
+  --malibu: #02C0EB;
+  --silverSand: #C0C0BE; 
+  --blackWhite: #E6E5DD;
+}
+
 @layer components {
   .hoverEffect {
-    @apply cursor-pointer hover:bg-gray-200 rounded-full w-[52px] xl:w-auto h-[52px] xl:h-auto xl:p-3;
+    @apply cursor-pointer hover:bg-silverSand rounded-full w-[52px] xl:w-auto h-[52px] xl:h-auto xl:p-3;
   }
 }
 
+body {
+  background: var(--blackWhite);
+}
 
 
 /* :root {
