@@ -15,6 +15,9 @@ const config: Config = {
       blackWhite: '#E6E5DD',
       white: '#FFFFFF',
       black: '#000000',
+      red: '#FF0000',
+      electric: '#005794',
+      paste: '#93D1EB',
       transparent: 'transparent',
     },
     fontFamily: {
@@ -22,10 +25,10 @@ const config: Config = {
       serif: ['Merriweather', 'serif'],
     },
     extend: {
-      // backgroundImage: {
-      //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      //   'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      // },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],

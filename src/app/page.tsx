@@ -1,16 +1,16 @@
 import Head from 'next/head'
-import Sidebar from './components/sidebar'
-import Feed from './components/feed'
-import Widgets from './components/widgets'
+import Sidebar from '../components/home/sidebar'
+import Feed from '../components/home/feed'
+import Widgets from '../components/home/widgets'
 
 export default function Home() {
   return (
     <div>
-      {/* <Head>
+      <Head>
         <title>UniExchange</title>
         <meta name="description" content="UniExchange" />
         <link rel="icon" href="/favicon.ico" />
-      </Head> */}
+      </Head>
 
       <main className='flex min-h-screen mx-auto'>
     	  <Sidebar />

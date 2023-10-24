@@ -16,7 +16,7 @@ interface PostProps {
 export default function Post({ post }: PostProps) {
 
     return (
-        <div className='flex p-3 cursor-pointer border-b border-gray-200'>
+        <div className='flex p-3 cursor-pointer border-b border-silverSand'>
             <Image className='h-11 w-11 rounded-full mr-4' src={post?.userImg} alt={'user-img'} width={11} height={11} />
 
             <div className='flex-1'>
@@ -25,26 +25,26 @@ export default function Post({ post }: PostProps) {
                         <h4 className='font-bold text-[15px] sm:text-[16px] hover:underline'>
                             {post?.name}
                         </h4>
-                        <span className='text-sm sm:text-[15px] text-gray-500'>
+                        <span className='text-sm sm:text-[15px] text-arsenic'>
                             @{post?.username}-{" "}
                         </span>
                         <span className="text-sm sm:text-[15px] hover:underline">
                             {post?.timestamp}
                         </span>
-                        <DotsHorizontalIcon className='h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2' />
+                        <DotsHorizontalIcon className='h-10 hoverEffect w-10 hover:bg-silverSand hover:text-black p-2' />
                     </div>
                 </div>
-                <p className='text-gray-800 text-[15px] sm:text-[16px] mb-2'>
+                <p className='text-arsenic text-[15px] sm:text-[16px] mb-2'>
                     {post?.text}
                 </p>
                 <Image className='rounded-2xl mr-2' src={post?.img} alt={'post-img'} width={500} height={500} />
 
                 <div className='flex justify-between text-gray-500 p-2'>
-                    <ChatIcon className='h-9 w-9 hoverEffect p-2 hover:bg-sky-500 hover:text-sky-100' />
-                    <TrashIcon className='h-9 w-9 hoverEffect p-2 hover:bg-red-100 hover:text-red-600' />
-                    <HeartIcon className='h-9 w-9 hoverEffect p-2 hover:bg-red-100 hover:text-red-600' />
-                    <ShareIcon className='h-9 w-9 hoverEffect p-2 hover:bg-sky-100 hover:text-sky-500' />
-                    <ChartBarIcon className='h-9 w-9 hoverEffect p-2 hover:bg-sky-100 hover:text-sky-500' />
+                    <ChatIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-mySin' />
+                    <TrashIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-red' />
+                    <HeartIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-red' />
+                    <ShareIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-malibu' />
+                    <ChartBarIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-malibu' />
                 </div>
             </div>
         </div>
