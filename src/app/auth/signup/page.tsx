@@ -5,7 +5,7 @@ import { useAuth } from '@/context/auth-context'
 import { useState } from 'react'
 import { Form } from '@/components/auth/form'
 
-export default function SignIn() {
+export default function SignUp() {
 
     const auth = useAuth()
     // const { displayName }  = auth.user
@@ -13,25 +13,22 @@ export default function SignIn() {
 
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
-    
-    const handleLogin = (e: React.MouseEvent) => {
+    const [passConfirm, setPassConfirm] = useState<string>('')
+
+    const handleRegister = (e: React.MouseEvent) => {
         e.preventDefault()
-        auth.login(email, password)
+
+        if (password !== passConfirm) {
+            alert('Las contraseñas no coinciden')
+            return
+        }
+
+        auth.register(email, password)
     }
 
     const handleLoginGoogle = (e: React.MouseEvent) => {
         e.preventDefault()
         auth.loginWithGoogle()
-    }
-
-    const handleLogOutGoogle = (e: React.MouseEvent) => {
-        e.preventDefault()
-        auth.logoutGoogle()
-    }
-
-    const handleLogOut = (e: React.MouseEvent) => {
-        e.preventDefault()
-        auth.logout()
     }
 
     return (
@@ -49,20 +46,21 @@ export default function SignIn() {
                     </div>
                     <div className='mt-12 flex flex-col items-center'>
                         <h1 className='text-2xl xl:text-3xl font-extrabold mb-5'>
-                            Iniciar Sesión
+                            Registrate
                         </h1>
                         <Form
-                            type={false}
-                            textButton='Iniciar Sesión'
+                            type
+                            textButton='Registrate'
                             setEmail={setEmail}
                             setPassword={setPassword}
-                            handleButton={handleLogin}
+                            setPassConfirm={setPassConfirm}
+                            handleButton={handleRegister}
                         />
 
                         <div className='w-full flex-1 mt-8'>
                             <div className='my-12 border-b text-center'>
                                 <div className='leading-none px-2 inline-block text-sm text-arsenic tracking-wide font-medium bg-white transform translate-y-1/2'>
-                                    <span>O inicia con</span>
+                                    <span>O registrate con</span>
                                 </div>
                             </div>
                             <div className='flex flex-col items-center'>
@@ -74,7 +72,7 @@ export default function SignIn() {
                                         <IconGoogle />
                                     </div>
                                     <span className='ml-4'>
-                                        Inicia sesión con Google
+                                        Registrate con Google
                                     </span>
                                 </button>
                             </div>
