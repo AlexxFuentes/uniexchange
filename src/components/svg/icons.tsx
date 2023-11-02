@@ -40,3 +40,47 @@ export const IconUserRegister = () => {
         </svg>
     )
 }
+
+export const IconCheck = () => {
+
+    return (
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth='1.5'
+            stroke='currentColor'
+            className='h-5 w-5 text-malibu'
+        >
+            <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M4.5 12.75l6 6 9-13.5'
+            />
+        </svg>
+    )
+}
+
+export const IconUniversity = () => {
+
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg"
+            className="w-16 h-16" width="128" height="128" viewBox="0 0 32 32"><path fill="#3B424C" d="m16 3.875l-.438.219L5.563 9L5 9.281V11h22V9.281L26.437 9l-10-4.906zm0 2.25L21.875 9h-11.75zM7 12v10H6v2h20v-2h-1V12h-2v10h-2V12h-2v10h-2V12h-2v10h-2V12h-2v10H9V12zM4 25v2h24v-2z" /></svg>
+    )
+}
+
+export const IconNimbus = () => {
+
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg"
+            className="w-16 h-16" width="128" height="128" viewBox="0 0 16 16"><path fill="#3B424C" d="M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16V6.28zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z" /></svg>
+    )
+}
+
+export const IconStudent = () => {
+
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg"
+        className="w-16 h-16" width="128" height="128" viewBox="0 0 24 24"><path fill="#3B424C" d="M18 10.5V6l-2.11 1.06A3.999 3.999 0 0 1 12 12a3.999 3.999 0 0 1-3.89-4.94L5 5.5L12 2l7 3.5v5h-1M12 9l-2-1c0 1.1.9 2 2 2s2-.9 2-2l-2 1m2.75-3.58L12.16 4.1L9.47 5.47l2.6 1.32l2.68-1.37M12 13c2.67 0 8 1.33 8 4v3H4v-3c0-2.67 5.33-4 8-4m0 1.9c-3 0-6.1 1.46-6.1 2.1v1.1h12.2V17c0-.64-3.13-2.1-6.1-2.1Z" /></svg>
+    )
+}

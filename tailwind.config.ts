@@ -9,10 +9,15 @@ const config: Config = {
   theme: {
     colors: {
       mySin: '#FEAA26',
-      arsenic: '#3B424c',
-      malibu: '#02C0EB',
-      silverSand: '#C0C0BE', 
+      malibu: '#03C0EB',
+      silverSand: '#C0C0BE',
       blackWhite: '#E6E5DD',
+      arsenic: '#3B424C',
+      // mySin: '#FEAA26',// Naranja
+      // malibu: '#02C0EB',// Azul
+      // arsenic: '#3B424c',// Gris
+      // silverSand: '#C0C0BE',// Gris
+      // blackWhite: '#E6E5DD',// Gris
       white: '#FFFFFF',
       black: '#000000',
       red: '#FF0000',

@@ -8,6 +8,7 @@
   --malibu: #02C0EB;
   --silverSand: #C0C0BE;
   --blackWhite: #E6E5DD;
+  --white: #FFFFFF;
 }
 
 @layer components {
@@ -17,7 +18,7 @@
 }
 
 body {
-  background: var(--blackWhite);
+  background: var(--white);
 }
 
 

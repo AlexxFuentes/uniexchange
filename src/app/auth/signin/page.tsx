@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { IconGoogle, IconUserRegister } from '@/components/svg/icons'
+import { IconGoogle } from '@/components/svg/icons'
 import { useAuth } from '@/context/auth-context'
 import { useState } from 'react'
 import { Form } from '@/components/auth/form'
