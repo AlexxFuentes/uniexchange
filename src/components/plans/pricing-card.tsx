@@ -19,7 +19,7 @@ export default function PricingCard({
 }: PricingCardProps) {
 
     return (
-        <div className='rounded-xl border bg-mySin border-mySin p-6 shadow-2xl sm:px-8 lg:py-7 lg:px-16'>
+        <div className='rounded-xl border bg-mySin border-mySin p-6 shadow-2xl sm:px-8 lg:py-7 lg:px-16 relative'>
             <div className='text-center'>
                 <h2 className='text-lg font-bold text-arsenic'>
                     {plan}
@@ -44,7 +44,7 @@ export default function PricingCard({
                 </li>
             </ul>
 
-            <div className='text-center'>
+            <div className='text-center mb-4'>
                 <p className='mt-2 sm:mt-4'>
                     <strong className='text-3xl font-bold text-arsenic sm:text-4xl'>
                         {precio}$
@@ -55,7 +55,7 @@ export default function PricingCard({
 
             <a
                 href='#'
-                className='mt-8 block rounded border font-bold border-arsenic bg-arsenic px-12 py-3 text-center text-sm text-white hover:ring-1 hover:ring-silverSand focus:outline-none focus:ring active:text-blackWhite'
+                className='z-[1] absolute -bottom-4 left-16 lg:left-24 mt-8 block rounded border font-bold border-arsenic bg-arsenic px-12 py-3 text-center text-sm text-white hover:ring-1 hover:ring-silverSand focus:outline-none focus:ring active:text-blackWhite'
             >
                 Eligir plan
             </a>

@@ -2,6 +2,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { AuthProvider } from '../context/auth-context'
+import Card from '@/components/landing-page/card'
+import { IconNimbus, IconStudent, IconUniversity } from '@/components/svg/icons'
+import Footer from '@/components/landing-page/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 

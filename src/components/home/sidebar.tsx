@@ -4,7 +4,7 @@ import { HomeIcon } from '@heroicons/react/solid'
 import {
     BellIcon, BookmarkIcon,
     DotsHorizontalIcon, UserIcon,
-    CurrencyDollarIcon, AcademicCapIcon
+    CurrencyDollarIcon, AcademicCapIcon, LibraryIcon
 } from '@heroicons/react/outline'
 import SidebarMenuItem from './sidebar-menu-item'
 import { useAuth } from '@/context/auth-context'
@@ -13,7 +13,7 @@ export default function Sidebar() {
     const logoUrl = './avatar.svg'
     const profileUrl = './avatar.svg'
 
-    const { user } = useAuth()
+    const { user, logout, login, } = useAuth()
 
     return (
         <div className='hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24'>
@@ -26,6 +26,7 @@ export default function Sidebar() {
                 <SidebarMenuItem text='Notificaciones' Icon={BellIcon} />
                 <SidebarMenuItem text='Guardados' Icon={BookmarkIcon} />
                 <SidebarMenuItem text='Facultades' Icon={AcademicCapIcon} />
+                <SidebarMenuItem text='Universidades' Icon={LibraryIcon} />
                 <SidebarMenuItem text='suscripciones' Icon={CurrencyDollarIcon} />
                 <SidebarMenuItem text='Perfil' Icon={UserIcon} />
             </div>
