@@ -9,12 +9,9 @@ export default function Plans() {
         <>
             <Header />
             <div className='bg-silverSand text-arsenic min-h-screen grid lg:flex max-xl:flex'>
-                <div className='m-0 bg-white shadow flex justify-center flex-1'>
-                    {/* <div className='flex-1 bg-white text-center hidden lg:flex border-r'> */}
-                    <div className='flex-1 bg-white text-center hidden lg:flex justify-center items-center border-r'>
-                        {/* <div className='m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat'
-                            style={{ backgroundImage: "url('/logo_g.png')" }}
-                        ></div> */}
+                <div className='m-0 mt-16 bg-white shadow grid lg:flex justify-center flex-1'>
+                    <div className='flex-1 bg-white text-center grid lg:flex justify-center items-center lg:border-r'>
+                    {/* <div className='lg:w-1/2 xl:w-5/12 flex flex-col justify-center items-center lg:border-r'> */}
                         <Image
                             src={"/logo_g.png"}
                             className='px-16 hover:brightness-95' width={600} height={100} alt={'logo img'}

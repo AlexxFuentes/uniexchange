@@ -5,9 +5,11 @@ import { useAuth } from '@/context/auth-context'
 import { useState } from 'react'
 import { Form } from '@/components/auth/form'
 
+
 export default function SignIn() {
 
     const auth = useAuth()
+    
     // const { displayName }  = auth.user
     // console.log(displayName ? displayName : 'no hay usuario');
 
@@ -21,7 +23,7 @@ export default function SignIn() {
 
     const handleLoginGoogle = (e: React.MouseEvent) => {
         e.preventDefault()
-        auth.loginWithGoogle()
+        auth.loginWithGoogle()        
     }
 
     const handleLogOutGoogle = (e: React.MouseEvent) => {

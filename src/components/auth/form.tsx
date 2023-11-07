@@ -37,7 +37,7 @@ export function Form({
             }
             if (type && passConfirmRef.current) {
                 passConfirmRef.current.value = '';
-            }
+            }            
         }, 3000);
     }
 

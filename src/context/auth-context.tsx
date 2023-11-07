@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword,
     signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
     signOut, onAuthStateChanged
 } from 'firebase/auth'
+import { useRouter } from 'next/navigation'
 
 
 interface AuthContextProps {
@@ -35,7 +36,8 @@ interface User {
 export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const [user, setUser] = useState<User | null>(null)
-
+    const router = useRouter()
+    
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
             if(!currentuser) {
@@ -53,6 +55,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         try {
             const resp = await createUserWithEmailAndPassword(auth, email, password)
             console.log(resp);
+            router.push('/home')
+            return
         } catch (error) {
             console.error(error)
         }
@@ -61,7 +65,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const login = async (email: string, password: string) => {
         try {
             const resp = await signInWithEmailAndPassword(auth, email, password)
-            console.log(resp);
+            router.push('/home')
+            console.log(resp);         
+            return   
         } catch (error) {
             console.error(error)
         }
@@ -75,7 +81,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const loginWithGoogle = async () => {
         try {
             const provider = new GoogleAuthProvider()
-            return await signInWithPopup(auth, provider)
+            await signInWithPopup(auth, provider)
+            router.push('/home')
+            return 
         } catch (error) {
             console.error(error)
         }

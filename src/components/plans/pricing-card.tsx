@@ -55,7 +55,7 @@ export default function PricingCard({
 
             <a
                 href='#'
-                className='z-[1] absolute -bottom-4 left-16 lg:left-24 mt-8 block rounded border font-bold border-arsenic bg-arsenic px-12 py-3 text-center text-sm text-white hover:ring-1 hover:ring-silverSand focus:outline-none focus:ring active:text-blackWhite'
+                className='z-[1] absolute -bottom-4 left-14 md:left-16 lg:left-24 mt-8 block rounded border font-bold border-arsenic bg-arsenic px-12 py-3 text-center text-sm text-white hover:ring-1 hover:ring-silverSand focus:outline-none focus:ring active:text-blackWhite'
             >
                 Eligir plan
             </a>

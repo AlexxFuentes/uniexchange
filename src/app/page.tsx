@@ -11,15 +11,16 @@ export default function Home() {
       <Header />
 
       <div className='text-arsenic min-h-screen flex'>
-        <div className='m-0 mt-16 bg-white flex justify-center flex-1'>
-          <div className='lg:w-1/2 xl:w-5/12 p-6 sm:p-12 flex justify-center items-center'>
+        <div className='m-0 mt-16 bg-white grid lg:flex justify-center flex-1'>
+          <div className='lg:w-1/2 xl:w-5/12 flex flex-col justify-center items-center'>
             <Image
               src={"/logo_g.png"}
               className='w-full' width={600} height={100} alt={'logo img'}
             />
+            <h2 className='text-2xl font-bold pt-5'>Intercambio academico y más</h2>
           </div>
-          <div className='lg:w-1/2 xl:w-5/12 p-6 sm:p-12 flex flex-col gap-4 justify-center items-center'>
-            <h2 className='font-bold text-2xl'>Se parte de esta gran comunidad</h2>
+          <div className='lg:w-1/2 xl:w-5/12 p-6 flex flex-col gap-4 justify-center items-center'>
+            <h2 className='font-bold text-2xl text-center'>Se parte de esta gran comunidad</h2>
             <h2 className='font-bold'>Y empieza a aprender</h2>
             <Link
                 className="mt-5 tracking-wide font-semibold bg-arsenic text-white py-4 px-10 rounded-lg hover:bg-electric hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
