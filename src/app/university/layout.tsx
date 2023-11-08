@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Link from "next/link";
+import Sidebar from "@/components/university/sidebar";
 
 type UniversityLayoutProps = {
   children: ReactNode;
@@ -8,32 +8,11 @@ type UniversityLayoutProps = {
 export default function UniversityLayout({ children }: UniversityLayoutProps) {
   return (
     <>
-      <section>
-        <ul>
-        <li>
-            <Link href={"/university"}>Perfil</Link>
-          </li>
-
-          <li>
-            <Link href={"/university/home"}>Inicio</Link>
-          </li>
-
-          <li>
-            <Link href={"/university/faculties"}>Faculades</Link>
-          </li>
-
-          <li>
-            <Link href={"/university/professors"}>Docentes</Link>
-          </li>
-          <li>
-            <Link href={"/university/students"}>Estudiantes</Link>
-          </li>
-          <li>
-            <Link href={"/university/shops"}>Comercios</Link>
-          </li>
-        </ul>
-      </section>
+    <div className="flex">
+      <Sidebar />
       {children}
+      </div>
+      
     </>
   );
 }

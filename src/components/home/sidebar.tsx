@@ -32,7 +32,7 @@ export default function Sidebar() {
                     <h4 className='font-bold'>Alex Fuentes</h4>
                     <p className='text-arsenic'>@aafuentes</p>
                 </div>
-                <DotsHorizontalIcon className='h-5 xl:ml-8 hidden xl:inline' />
+                <DotsHorizontalIcon className='h-5 xl:ml-8 hidden xl:block' />
             </div>
 
             <div className='mt-4 mb-2.5 xl:items-start'>
