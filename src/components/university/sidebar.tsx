@@ -21,12 +21,12 @@ export default function Sidebar() {
   }
 
   const iconComponents: { [key: string]: ReactNode } = {
-    HomeIcon: <HomeIcon className="h-10 w-10 p-1 mr-1" />,
-    AcademicCapIcon: <AcademicCapIcon className="h-10 w-10 p-1 mr-1" />,
-    FaChalkboardTeacher: <FaChalkboardTeacher className="h-10 w-10 p-1 mr-1" />,
-    PiStudentBold: <PiStudentBold className="h-10 w-10 p-1 mr-1" />,
-    AiFillShop: <AiFillShop className="h-10 w-10 p-1 mr-1" />,
-    BiLogOut: <BiLogOut className="h-10 w-10 p-1 mr-1" />,
+    HomeIcon: <HomeIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
+    AcademicCapIcon: <AcademicCapIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
+    FaChalkboardTeacher: <FaChalkboardTeacher className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
+    PiStudentBold: <PiStudentBold className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
+    AiFillShop: <AiFillShop className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
+    BiLogOut: <BiLogOut className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
   };
 
   const links: Link[] = [
@@ -87,15 +87,15 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <section className="w-[13%] px-5 min-h-screen border-r-[1px] border-r-silverSand text-xl text-arsenic py-2">
-      <div className="border-b-[1px] border-b-silverSand h-[50px]">
+    <section className=" w-[10%] xl:w-[13%] sm:p-1 sm:px-2 xl:px-5 xl:py-2 min-h-screen border-r-[1px] border-r-silverSand xl:text-sm 2xl:text-lg text-arsenic">
+      <div className="border-b-[1px] border-b-silverSand h-[50px] flex items-center justify-center ">
         {showGif ? (
           <img
             src="/C_claro.gif"
             width={200}
             height={15}
             alt="Logo de la web"
-            className=" mb-2 mx-auto"
+            className=" mb-2 mx-auto hidden xl:block"
           />
         ) : (
           <Image
@@ -103,9 +103,16 @@ export default function Sidebar() {
             width={200}
             height={15}
             alt="logo img"
-            className=" mb-2 mx-auto"
+            className=" mb-2 mx-auto hidden xl:block"
           />
         )}
+        <Image
+            src="/logo_favico.png"
+            width={40}
+            height={15}
+            alt="logo img"
+            className=" mb-2 mx-auto xl:hidden"
+          />
       </div>
       <ul className="h-[calc(100%-130px)]">
         <div className="border-b-[1px] border-b-silverSand py-3">
@@ -114,23 +121,23 @@ export default function Sidebar() {
               <div
                 className={`${
                   activeProfile ? "hoverUniversityProfiel" : ""
-                } hover:hoverUniversityProfiel relative flex items-center justify-center xl:justify-start `}
+                } hover:hoverUniversityProfiel relative flex items-center justify-center xl:justify-start px-[2px]`}
                 onClick={() => {
                   activateElement("profile", null);
                 }}
               >
                 <Image
-                  className="h-12 w-12 rounded-full xl:mr-2"
+                  className=" h-12 w-12 rounded-full xl:mr-2"
                   width={12}
                   height={12}
                   src={profileUrl}
                   alt="profile img"
                 />
                 <div className="leading-5 hidden xl:inline truncate w-full ">
-                  <h4 className="font-bold text-xl whitespace-nowrap w-3">
+                  <h4 className="font-bold 2xl:text-xl whitespace-nowrap w-3">
                     Nombre Universidad
                   </h4>
-                  <p className=" text-base">@correo</p>
+                  <p className="text-xs 2xl:text-base">@correo</p>
                 </div>
                 <DotsHorizontalIcon className="h-5 hidden xl:block" />
 
@@ -147,19 +154,24 @@ export default function Sidebar() {
         <div className="flex justify-between flex-col h-full">
           <div className="flex py-4 gap-3 flex-col border-b-[1px] border-b-silverSand">
             {links.map((link, index) => (
-              <Link href={link.link} passHref>
+              
+              <Link href={link.link}  key={index}>
                 <li
                   className={`${
                     activeIndex === index ? "hoverUniversity group" : ""
-                  } hover:hoverUniversity flex justify-between relative`}
-                  key={link.name}
+                  } hover:hoverUniversity flex justify-between relative `}
                   onClick={() => {
                     activateElement("link", index);
                   }}
                 >
-                  <div className="flex items-center">
-                    {iconComponents[link.icon]}
-                    {link.name}
+                  <div className=" m-auto xl:flex xl:items-center xl:m-0">
+                    <div className="">
+                      {iconComponents[link.icon]}
+                    </div>
+                    <div className=" hidden xl:block">
+                      {link.name}
+                    </div>
+                    
                   </div>
                   <div
                     className={`${
@@ -172,23 +184,29 @@ export default function Sidebar() {
           </div>
 
           <div className="border-b-[1px] border-b-silverSand py-1 mb-2 h-full flex items-end">
-            <div className="flex items-center">
-              <AiFillCreditCard className="h-11 w-11 p-1 mr-1" />
-              <div>
+            <div className="mx-auto xl:flex xl:items-center xl:m-0">
+              <AiFillCreditCard className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+              <div >
+              <div className=" hidden xl:block">
                 <p className="font-bold">Plan:</p>
                 <p>Profesional</p>
+                </div>
               </div>
             </div>
           </div>
           <div>
-            <li className="hover:hoverUniversity flex justify-between relative">
-              <Link href="/" passHref>
-                <div className="flex items-center">
-                  <BiLogOut className="h-10 w-10 p-1 mr-1" />
+          <Link href="/">
+            <li className="hover:hoverUniversity flex justify-between w-full">
+              
+                <div className="m-auto xl:flex xl:items-center xl:m-0">
+                  <BiLogOut className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+                  <div className=" hidden xl:block">
                   Salir
+                  </div>
                 </div>
-              </Link>
+              
             </li>
+            </Link>
           </div>
         </div>
       </ul>

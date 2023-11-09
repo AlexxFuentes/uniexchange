@@ -17,14 +17,14 @@
   }
 
   .hoverUniversity {
-    @apply cursor-pointer w-full bg-mySin300 bg-opacity-50 rounded-xl px-1 font-bold text-2xl
+    @apply cursor-pointer xl:w-full bg-mySin300 bg-opacity-50  sm:rounded-xl xl:px-1 font-bold xl:text-sm 2xl:text-lg
   }
   .hoverUniversityLine {
-    @apply w-1 h-full bg-mySin absolute right-[-20px]
+    @apply w-1 h-full bg-mySin absolute right-[0px] sm:right-[-10px] xl:right-[-20px]
   }
 
   .hoverUniversityProfiel {
-    @apply cursor-pointer w-full bg-mySin300 bg-opacity-50 rounded-2xl px-1 
+    @apply cursor-pointer xl:w-full bg-mySin300 bg-opacity-50  sm:rounded-2xl xl:px-1 
   }
 
   .buttonOrange {
