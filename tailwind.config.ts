@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     colors: {
       mySin: '#FEAA26',
+      mySin300: '#E29822',
       malibu: '#03C0EB',
       silverSand: '#C0C0BE',
       blackWhite: '#E6E5DD',

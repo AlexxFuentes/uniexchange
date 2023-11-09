@@ -15,6 +15,27 @@
   .hoverEffect {
     @apply cursor-pointer hover:bg-silverSand rounded-full w-[52px] xl:w-auto h-[52px] xl:h-auto xl:p-3;
   }
+
+  .hoverUniversity {
+    @apply cursor-pointer w-full bg-mySin300 bg-opacity-50 rounded-xl px-1 font-bold text-2xl
+  }
+  .hoverUniversityLine {
+    @apply w-1 h-full bg-mySin absolute right-[-20px]
+  }
+
+  .hoverUniversityProfiel {
+    @apply cursor-pointer w-full bg-mySin300 bg-opacity-50 rounded-2xl px-1 
+  }
+
+  .buttonOrange {
+    @apply px-14 py-2 w-auto h-auto bg-mySin text-arsenic rounded-xl text-2xl font-bold shadow-md
+  }
+
+  .buttonBlack {
+    @apply px-14 py-2 w-auto h-auto bg-arsenic text-blackWhite rounded-xl text-2xl font-bold shadow-md
+  }
+  
+
 }
 
 body {
