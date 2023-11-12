@@ -15,7 +15,7 @@ interface AuthContextProps {
     logout: () => void,
     loginWithGoogle: () => void,
     logoutGoogle: () => void,
-    user: any,
+    user: User | null,
 }
 
 export const AuthContext = createContext({} as AuthContextProps)
@@ -29,7 +29,7 @@ export function useAuth() {
 interface User {
     displayName: string
     email: string
-    photoURL: string
+    photoURL: string,
     uid: string
 }
 

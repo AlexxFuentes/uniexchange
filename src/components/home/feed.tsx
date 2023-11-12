@@ -1,29 +1,23 @@
+import { DocumentData, QueryDocumentSnapshot, collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { SparklesIcon } from '@heroicons/react/outline'
 import Post from './post'
 import Input from './input'
+import { useEffect, useState } from 'react'
+import { db } from '@/config/firebase.config'
 
 export default function Feed() {
 
-    const posts = [
-        {
-            id: "1",
-            name: "John Doe",
-            username: "johndoe",
-            userImg: "./avatar.svg",
-            img: "/img_prueba.png",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl. Sed euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl.",
-            timestamp: "1 hour ago",
-        },
-        {
-            id: "2",
-            name: "John Doe",
-            username: "johndoe",
-            userImg: "./avatar.svg",
-            img: "/img_prueba.png",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl. Sed euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl.",
-            timestamp: "1 hour ago",
-        }
-    ]
+    const [posts, setPosts] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
+
+    useEffect(() => {
+        return onSnapshot(
+            query(collection(db, 'posts'), orderBy('timestamp', 'desc')),
+            (snapshot) => {
+                setPosts(snapshot.docs)
+            }
+        )
+    }, [])
+
 
     return (
         <div className='xl:ml-[370px] border-l border-r border-silverSand  xl:min-w-[576px] sm:ml-[73px] flex-grow max-w-xl'>
@@ -37,7 +31,7 @@ export default function Feed() {
             <Input />
 
             {
-                posts.map((post) => (<Post key={post.id} post={post} />))
+                posts.map((post) => (<Post key={post.id} post={post} id={post.id} />))
             }
         </div>
     )

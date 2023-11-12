@@ -1,18 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'cdn.cms-twdigitalassets.com',
-                pathname: '/content/**',
-            },
-            {
-                protocol: 'https',
-                hostname: 'help.twitter.com',
-                pathname: '/content/**',
-            },
-        ]
+        // remotePatterns: [
+        //     {
+        //         protocol: 'https',
+        //         hostname: 'firebasestorage.googleapis.com',
+        //         pathname: '/posts/**',
+        //     }
+        // ]
+        domains: [
+            'firebasestorage.googleapis.com', 
+            'lh3.googleusercontent.com'
+        ],
     }
 }
 
