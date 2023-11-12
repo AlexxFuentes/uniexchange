@@ -1,3 +1,4 @@
+'use client'
 import { ChartBarIcon, ChatIcon, DotsHorizontalIcon, HeartIcon, ShareIcon, TrashIcon } from '@heroicons/react/outline'
 import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore'
@@ -8,7 +9,7 @@ import { useRecoilState } from 'recoil'
 import { modalAtom, postIdState } from '@/atom/modalAtom'
 import { useAuth } from '@/context/auth-context'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 interface PostProps {
@@ -18,13 +19,13 @@ interface PostProps {
 
 export default function Post({ post, id }: PostProps) {
 
-    const router = useRouter()
-    const [open, setOpen] = useRecoilState(modalAtom)
-    const [postId, setPostId] = useRecoilState(postIdState)
+    // const [open, setOpen] = useRecoilState(modalAtom)
+    // const [postId, setPostId] = useRecoilState(postIdState)
     const { login, loginWithGoogle, user } = useAuth()
     const [likes, setLikes] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
     const [hasLiked, setHasLiked] = useState(false)
     const [comments, setComments] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
+    const router = useRouter()
 
     useEffect(() => {
         const unsubscribe = onSnapshot(
