@@ -1,31 +1,63 @@
 import { LibraryIcon } from "@heroicons/react/outline";
+import Image from "next/image";
+import { AcademicCapIcon } from "@heroicons/react/outline";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { PiStudentBold } from "react-icons/pi";
+import { AiFillShop } from "react-icons/ai";
+import Header from "@/components/university/header";
+import Data from "@/components/university/data";
 
 export default function Universities() {
+  const profileUrl = "../avatar.svg";
+
   return (
     <>
-      <div className="sm:p-1 sm:px-2 xl:px-5 xl:py-2 w-[90%] xl:w-[87%] min-h-screen m-0">
-        <section className=" w-full h-[50px] border-b-[1px] border-b-silverSand font-bold flex justify-between items-center text-4xl">
-          <h1>Perfil</h1>
-          <h1>Nombre Universidad</h1>
-          <LibraryIcon className="h-11 w-12" />
-        </section>
+      <div className=" px-1 sm:p-1 sm:px-2 xl:px-5 xl:py-2 w-[90%] xl:w-[87%] min-h-screen m-0">
+        <Header head="Perfil" Icon={LibraryIcon} nameUniversity="UNAH" />
 
-        <section className="py-3 h-[calc(100%-50px)]">
-          <div className="flex w-full h-1/3 border-b-[1px] border-b-silverSand">
-            <div className="w-1/4  border-r-[1px] border-r-silverSand "></div>
-            <div className="w-9/12 px-3"></div>
+        <section className="overflow-x-auto py-3 h-[calc(100vh-70px)] text-xs md:text-sm xl:text-base">
+          <div className="sm:flex w-full sm:h-1/3 border-b-[1px] border-b-silverSand">
+            <div className="w-full sm:w-1/4 border-b-[1px] sm:border-r-[1px] sm:border-b-[0px] border-r-silverSand border-b-silverSand p-1 ">
+              <Image
+                className=" h-32 w-32 sm:h-full sm:w-full rounded-full m-auto"
+                width={12}
+                height={12}
+                src={profileUrl}
+                alt="profile img"
+              />
+            </div>
+            <div className="w-full sm:w-9/12 px-3 p-3">
+              <h1 className="font-bold text-base md:text-lg xl:text-xl">
+                Informacion General
+              </h1>
+              <div className="flex flex-col gap-6">
+                <p className="">Nombre Universidad</p>
+                <p className="">Pais</p>
+                <p className="">Direccion</p>
+                <p className="">Plan</p>
+              </div>
+            </div>
           </div>
 
           <div className="w-full h-auto p-3 border-b-[1px] border-b-silverSand">
-            <h1>asdasljkd ajshdkjahsdjk hakjs hd</h1>
+            <p className="">Descripcion</p>
           </div>
 
-          <div className="w-full h-1/6 flex justify-center items-center border-b-[1px] border-b-silverSand">
+          <div className="w-full p-3 flex justify-center items-center border-b-[1px] border-b-silverSand">
             <button className="buttonOrange">Editar</button>
           </div>
 
-          <div className="w-full h-[45%] p-3 flex justify-center items-center" >
-          <button className="buttonBlack">Editar</button>
+          <div className="w-full p-3 flex justify-center items-center flex-col gap-2">
+            <h1 className="font-bold text-base md:text-lg xl:text-xl">
+              Datos Generales
+            </h1>
+            <div className="grid gap-5 grid-cols-2 sm:grid-cols-4">
+              <Data cuantity="25" Icon={AcademicCapIcon} name="Facultades" />
+              <Data cuantity="75" Icon={FaChalkboardTeacher} name="Docentes" />
+              <Data cuantity="1,500" Icon={PiStudentBold} name="Estudiantes" />
+              <Data cuantity="18" Icon={AiFillShop} name="Comercios" />
+            </div>
+            <button className="buttonBlack">Más detalles</button>
           </div>
         </section>
       </div>

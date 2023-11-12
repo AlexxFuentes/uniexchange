@@ -21,12 +21,24 @@ export default function Sidebar() {
   }
 
   const iconComponents: { [key: string]: ReactNode } = {
-    HomeIcon: <HomeIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
-    AcademicCapIcon: <AcademicCapIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
-    FaChalkboardTeacher: <FaChalkboardTeacher className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
-    PiStudentBold: <PiStudentBold className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
-    AiFillShop: <AiFillShop className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
-    BiLogOut: <BiLogOut className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />,
+    HomeIcon: (
+      <HomeIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+    ),
+    AcademicCapIcon: (
+      <AcademicCapIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+    ),
+    FaChalkboardTeacher: (
+      <FaChalkboardTeacher className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+    ),
+    PiStudentBold: (
+      <PiStudentBold className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+    ),
+    AiFillShop: (
+      <AiFillShop className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+    ),
+    BiLogOut: (
+      <BiLogOut className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+    ),
   };
 
   const links: Link[] = [
@@ -80,7 +92,7 @@ export default function Sidebar() {
     // Ocultar el GIF después de 5 segundos (5000 ms)
     const timeout = setTimeout(() => {
       setShowGif(false);
-    }, 3000);
+    }, 2700);
 
     // Limpia el temporizador al desmontar el componente
     return () => clearTimeout(timeout);
@@ -107,12 +119,12 @@ export default function Sidebar() {
           />
         )}
         <Image
-            src="/logo_favico.png"
-            width={40}
-            height={15}
-            alt="logo img"
-            className=" mb-2 mx-auto xl:hidden"
-          />
+          src="/logo_favico.png"
+          width={40}
+          height={15}
+          alt="logo img"
+          className=" mb-2 mx-auto xl:hidden"
+        />
       </div>
       <ul className="h-[calc(100%-130px)]">
         <div className="border-b-[1px] border-b-silverSand py-3">
@@ -154,8 +166,7 @@ export default function Sidebar() {
         <div className="flex justify-between flex-col h-full">
           <div className="flex py-4 gap-3 flex-col border-b-[1px] border-b-silverSand">
             {links.map((link, index) => (
-              
-              <Link href={link.link}  key={index}>
+              <Link href={link.link} key={index}>
                 <li
                   className={`${
                     activeIndex === index ? "hoverUniversity group" : ""
@@ -165,13 +176,8 @@ export default function Sidebar() {
                   }}
                 >
                   <div className=" m-auto xl:flex xl:items-center xl:m-0">
-                    <div className="">
-                      {iconComponents[link.icon]}
-                    </div>
-                    <div className=" hidden xl:block">
-                      {link.name}
-                    </div>
-                    
+                    <div className="">{iconComponents[link.icon]}</div>
+                    <div className=" hidden xl:block">{link.name}</div>
                   </div>
                   <div
                     className={`${
@@ -186,26 +192,22 @@ export default function Sidebar() {
           <div className="border-b-[1px] border-b-silverSand py-1 mb-2 h-full flex items-end">
             <div className="mx-auto xl:flex xl:items-center xl:m-0">
               <AiFillCreditCard className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
-              <div >
-              <div className=" hidden xl:block">
-                <p className="font-bold">Plan:</p>
-                <p>Profesional</p>
+              <div>
+                <div className=" hidden xl:block">
+                  <p className="font-bold">Plan:</p>
+                  <p>Profesional</p>
                 </div>
               </div>
             </div>
           </div>
           <div>
-          <Link href="/">
-            <li className="hover:hoverUniversity flex justify-between w-full">
-              
+            <Link href="/">
+              <li className="hover:hoverUniversity flex justify-between w-full">
                 <div className="m-auto xl:flex xl:items-center xl:m-0">
                   <BiLogOut className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
-                  <div className=" hidden xl:block">
-                  Salir
-                  </div>
+                  <div className=" hidden xl:block">Salir</div>
                 </div>
-              
-            </li>
+              </li>
             </Link>
           </div>
         </div>
