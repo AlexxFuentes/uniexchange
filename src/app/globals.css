@@ -38,6 +38,10 @@
   .box {
     @apply p-6 sm:p-10 border-[1px] border-silverSand/40 shadow-md shadow-silverSand/50 rounded-xl
   }
+
+  .boxHome {
+    @apply p-6 sm:p-10 md:p-16 md:px-4 xl:px-10 border-[1px] border-silverSand/40 shadow-md shadow-silverSand/50 rounded-xl
+  }
   
 
 }

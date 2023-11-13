@@ -13,6 +13,7 @@ import { ReactNode } from "react";
 import { useState } from "react";
 import { useEffect, useRef } from "react";
 
+
 export default function Sidebar() {
   interface Link {
     name: string;
@@ -71,6 +72,16 @@ export default function Sidebar() {
 
   const profileUrl = "../avatar.svg";
 
+  /* Para dejar activo el profile */
+/*   useEffect(() => {
+    // Recupera el índice activo desde localStorage al montar el componente
+    const storedIndex = localStorage.getItem('activeIndex');
+    setActiveIndex(storedIndex ? parseInt(storedIndex) : null);
+    console.log(storedIndex);
+    // Limpia el valor almacenado al desmontar el componente si es necesario
+    return () => localStorage.removeItem('activeIndex');
+  }, []); */
+
   /* Para dejar activos los li */
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [activeProfile, setActiveProfile] = useState(true);
@@ -84,6 +95,8 @@ export default function Sidebar() {
       setActiveProfile(false);
     }
   };
+
+
 
   /* Detener animacion del git (logo) */
   const [showGif, setShowGif] = useState(true);

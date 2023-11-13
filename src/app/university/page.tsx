@@ -1,3 +1,5 @@
+"use client";
+
 import { LibraryIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import { AcademicCapIcon } from "@heroicons/react/outline";
@@ -6,6 +8,8 @@ import { PiStudentBold } from "react-icons/pi";
 import { AiFillShop } from "react-icons/ai";
 import Header from "@/components/university/header";
 import Data from "@/components/university/data";
+import Link from "next/link";
+
 
 export default function Universities() {
   const profileUrl = "../avatar.svg";
@@ -49,7 +53,7 @@ export default function Universities() {
 
           <div className="w-full p-3 flex justify-center items-center flex-col gap-2">
             <h1 className="font-bold text-base md:text-lg xl:text-xl">
-              Datos Generales
+              Datos Oficiales
             </h1>
             <div className="grid gap-5 grid-cols-2 sm:grid-cols-4">
               <Data cuantity="25" Icon={AcademicCapIcon} name="Facultades" />
@@ -57,7 +61,18 @@ export default function Universities() {
               <Data cuantity="1,500" Icon={PiStudentBold} name="Estudiantes" />
               <Data cuantity="18" Icon={AiFillShop} name="Comercios" />
             </div>
-            <button className="buttonBlack">Más detalles</button>
+            <Link href="/university/home">
+              <button
+                className="buttonBlack"
+
+                /* onClick={() => {
+                  localStorage.setItem("activeIndex", "-1"); // o cualquier otro valor predeterminado válido
+                  // Redirige a la pantalla de inicio
+                }} */
+              >
+                Más detalles
+              </button>
+            </Link>
           </div>
         </section>
       </div>
