@@ -66,7 +66,8 @@ export default function Professors() {
 
         <section className="boxBig flex-1 flex flex-col">
           {professors.map((professor) => (
-            <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center">
+            <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center"
+            key={professor.id}>
               <div className="sm:flex justify-center items-center gap-4 mr-2">
                 <img
                   src={`${professor.image}`}

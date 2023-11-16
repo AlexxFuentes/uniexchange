@@ -5,46 +5,52 @@ import { FaChevronLeft } from "react-icons/fa6";
 
 export default function Shops() {
 
-  interface Facult {
+  interface Shop {
     id: number;
     image: any;
     nombre: string;
-    jefe: string;
+    propietario: string;
     descripcion: string;
+    ubicacion: string;
   }
   
-  const facultades: Facult[] = [
+  const shops: Shop[] = [
     {
       id: 1,
       image: '/img_prueba.png',
-      nombre: 'Ingenieria en sistemas',
-      jefe: 'Yhonny Aplicano',
-      descripcion: 'Reyes de ingenieria.',
+      nombre: 'Baleadas Unah',
+      propietario: 'Yhonny Aplicano',
+      descripcion: 'Ricas valeadas',
+      ubicacion: 'Fuera de la UNAH frente al porton principal',
     },
     {
       id: 2,
       image: '/img_prueba.png',
       nombre: 'Ingenieria en sistemas',
-      jefe: 'Yhonny Aplicano',
+      propietario: 'Yhonny Aplicano',
       descripcion: 'Reyes de ingenieria.',
+      ubicacion: 'Fuera de la UNAH frente al porton principal',
     },
     {
       id: 3,
       image: '/img_prueba.png',
       nombre: 'Ingenieria en sistemas',
-      jefe: 'Yhonny Aplicano',
+      propietario: 'Yhonny Aplicano',
       descripcion: 'Reyes de ingenieria.',
+      ubicacion: 'Fuera de la UNAH frente al porton principal',
     },
     {
       id: 4,
       image: '/img_prueba.png',
       nombre: 'Ingenieria industrial',
-      jefe: 'Yhonny Aplicano',
+      propietario: 'Yhonny Aplicano',
       descripcion: 'ingenieria.',
+      ubicacion: 'Fuera de la UNAH frente al porton principal',
     }
   ];
 
   return (
+    
     <div className="px-1 sm:p-1 sm:px-2 xl:px-5 xl:py-2 w-[90%] xl:w-[87%] min-h-screen m-0 text-arsenic">
       <Header head='Comercios' Icon={AiFillShop} nameUniversity="UNAH"/>
 
@@ -58,20 +64,21 @@ export default function Shops() {
         />
 
 <section className="boxBig flex-1 flex flex-col">
-        {facultades.map((facultad) => (
-          <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center">
+        {shops.map((shop) => (
+          <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center" key={shop.id}>
             <div className="sm:flex justify-center items-center gap-4 mr-2">
                 <img
-                  src={`${facultad.image}`}
+                  src={`${shop.image}`}
                   alt="logo img"
                   className="rounded-lg w-full max-w-[10rem] md:max-w-[15rem] xl:max-w-xs m-auto " />
 
                 <div className="flex text-center sm:text-left flex-col gap-1 my-2 sm:my-0">
                   <h1 className="font-bold text-base md:text-lg xl:text-xl">
-                    {facultad.nombre}
+                    {shop.nombre}
                   </h1>
-                  <span>jefe: {facultad.jefe}</span>
-                  <span>Descripcion: {facultad.descripcion}</span>
+                  <span>jefe: {shop.propietario}</span>
+                  <span>Direccion: {shop.ubicacion}</span>
+                  <span>Descripcion: {shop.descripcion}</span>
                 </div>
               </div>
               <div className="flex flex-col justify-center items-center gap-1">

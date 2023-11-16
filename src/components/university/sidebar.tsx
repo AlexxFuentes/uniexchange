@@ -11,8 +11,8 @@ import { BiLogOut } from "react-icons/bi";
 import { ReactNode } from "react";
 
 import { useState } from "react";
-import { useEffect, useRef } from "react";
-
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
   interface Links {
@@ -73,7 +73,7 @@ export default function Sidebar() {
   const profileUrl = "../avatar.svg";
 
   /* Para dejar activo el profile */
-/*   useEffect(() => {
+  /*   useEffect(() => {
     // Recupera el índice activo desde localStorage al montar el componente
     const storedIndex = localStorage.getItem('activeIndex');
     setActiveIndex(storedIndex ? parseInt(storedIndex) : null);
@@ -81,9 +81,10 @@ export default function Sidebar() {
     // Limpia el valor almacenado al desmontar el componente si es necesario
     return () => localStorage.removeItem('activeIndex');
   }, []); */
+  
 
   /* Para dejar activos los li */
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  /* const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [activeProfile, setActiveProfile] = useState(true);
 
   const activateElement = (elementType: string, index: number | null) => {
@@ -94,9 +95,9 @@ export default function Sidebar() {
       setActiveIndex(index);
       setActiveProfile(false);
     }
-  };
+  }; */
 
-
+  const pathname = usePathname();
 
   /* Detener animacion del git (logo) */
   const [showGif, setShowGif] = useState(true);
@@ -145,11 +146,11 @@ export default function Sidebar() {
             <li>
               <div
                 className={`${
-                  activeProfile ? "hoverUniversityProfiel" : ""
+                  pathname === "/university" ? "hoverUniversityProfiel" : ""
                 } hover:hoverUniversityProfiel relative flex items-center justify-center xl:justify-start px-[2px]`}
-                onClick={() => {
+                /*                 onClick={() => {
                   activateElement("profile", null);
-                }}
+                }} */
               >
                 <Image
                   className=" h-12 w-12 rounded-full xl:mr-2"
@@ -168,7 +169,7 @@ export default function Sidebar() {
 
                 <div
                   className={`${
-                    activeProfile ? "opacity-100" : "opacity-0"
+                    pathname === "/university" ? "opacity-100" : "opacity-0"
                   } hoverUniversityLine group-hover:opacity-100 transition-opacity duration-300`}
                 ></div>
               </div>
@@ -182,11 +183,11 @@ export default function Sidebar() {
               <Link href={link.link} key={index}>
                 <li
                   className={`${
-                    activeIndex === index ? "hoverUniversity group" : ""
+                    pathname === link.link ? "hoverUniversity group" : ""
                   } hover:hoverUniversity flex justify-between relative `}
-                  onClick={() => {
+                  /*                   onClick={() => {
                     activateElement("link", index);
-                  }}
+                  }} */
                 >
                   <div className=" m-auto xl:flex xl:items-center xl:m-0">
                     <div className="">{iconComponents[link.icon]}</div>
@@ -194,7 +195,7 @@ export default function Sidebar() {
                   </div>
                   <div
                     className={`${
-                      activeIndex === index ? "opacity-100" : "opacity-0"
+                      pathname === link.link ? "opacity-100" : "opacity-0"
                     } hoverUniversityLine group-hover:opacity-100 transition-opacity duration-300`}
                   ></div>
                 </li>

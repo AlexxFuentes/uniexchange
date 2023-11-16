@@ -59,7 +59,7 @@ export default function Faculties() {
 
         <section className="boxBig flex-1 flex flex-col">
         {facultades.map((facultad) => (
-          <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center">
+          <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center" key={facultad.id}>
             <div className="sm:flex justify-center items-center gap-4 mr-2">
                 <img
                   src={`${facultad.image}`}
