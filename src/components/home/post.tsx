@@ -5,11 +5,11 @@ import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore'
 import { collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore'
 import { db, storage } from '@/config/firebase.config'
 import { deleteObject, ref } from 'firebase/storage'
-import { useRecoilState } from 'recoil'
-import { modalAtom, postIdState } from '@/atom/modalAtom'
+import { modalState, postIdState } from '@/atom/modalAtom'
 import { useAuth } from '@/context/auth-context'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useRecoilState } from 'recoil'
 import Image from 'next/image'
 
 interface PostProps {
@@ -19,8 +19,8 @@ interface PostProps {
 
 export default function Post({ post, id }: PostProps) {
 
-    // const [open, setOpen] = useRecoilState(modalAtom)
-    // const [postId, setPostId] = useRecoilState(postIdState)
+    const [open, setOpen] = useRecoilState(modalState)
+    const [postId, setPostId] = useRecoilState(postIdState)
     const { login, loginWithGoogle, user } = useAuth()
     const [likes, setLikes] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
     const [hasLiked, setHasLiked] = useState(false)
@@ -33,7 +33,7 @@ export default function Post({ post, id }: PostProps) {
             (snapshot) => setComments(snapshot.docs)
         )
         return () => unsubscribe()
-    }, [db])
+    }, [id])
 
     useEffect(() => {
         const unsubscribe = onSnapshot(
@@ -41,11 +41,11 @@ export default function Post({ post, id }: PostProps) {
             (snapshot) => setLikes(snapshot.docs)
         )
         return () => unsubscribe()
-    }, [db])
+    }, [id])
 
     useEffect(() => {
         setHasLiked(likes.findIndex((like) => like.id === user?.uid) !== -1)
-    }, [likes])
+    }, [likes, user?.uid])
 
     async function likePost() {
         if (user) {

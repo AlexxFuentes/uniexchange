@@ -5,7 +5,6 @@ import { useAuth } from '@/context/auth-context'
 import { useState } from 'react'
 import { Form } from '@/components/auth/form'
 
-
 export default function SignIn() {
 
     const auth = useAuth()
@@ -42,12 +41,17 @@ export default function SignIn() {
                 <div className='flex-1 bg-white text-center hidden lg:flex border-r'>
                     <div
                         className='m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat'
-                        style={{ backgroundImage: "url('/logo_g.png')" }}
+                        style={{ backgroundImage: "url('/logo_g.png')" }}                    
                     ></div>
                 </div>
                 <div className='lg:w-1/2 xl:w-5/12 p-6 sm:p-12'>
                     <div>
-                        <Image src='/logo_favico.png' className='w-32 mx-auto' width={100} height={100} alt='logo' />
+                        <Image 
+                            src='/logo_favico.png' 
+                            className='w-32 mx-auto' 
+                            width={100} height={100} alt='logo' 
+                            priority
+                        />
                     </div>
                     <div className='mt-12 flex flex-col items-center'>
                         <h1 className='text-2xl xl:text-3xl font-extrabold mb-5'>

@@ -42,7 +42,12 @@ export default function SignUp() {
                 </div>
                 <div className='lg:w-1/2 xl:w-5/12 p-6 sm:p-12'>
                     <div>
-                        <Image src='/logo_favico.png' className='w-32 mx-auto' width={100} height={100} alt='logo' />
+                        <Image 
+                            src='/logo_favico.png' 
+                            className='w-32 mx-auto' 
+                            width={100} height={100} alt='logo' 
+                            priority
+                        />
                     </div>
                     <div className='mt-12 flex flex-col items-center'>
                         <h1 className='text-2xl xl:text-3xl font-extrabold mb-5'>
