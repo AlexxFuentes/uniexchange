@@ -15,7 +15,7 @@ import { useEffect, useRef } from "react";
 
 
 export default function Sidebar() {
-  interface Link {
+  interface Links {
     name: string;
     icon: string;
     link: string;
@@ -42,7 +42,7 @@ export default function Sidebar() {
     ),
   };
 
-  const links: Link[] = [
+  const links: Links[] = [
     {
       name: "Inicio",
       icon: "HomeIcon",

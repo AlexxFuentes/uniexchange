@@ -16,10 +16,10 @@ export default function Universities() {
 
   return (
     <>
-      <div className=" px-1 sm:p-1 sm:px-2 xl:px-5 xl:py-2 w-[90%] xl:w-[87%] min-h-screen m-0">
+      <div className=" px-1 sm:p-1 sm:px-2 xl:px-5 xl:py-2 w-[90%] xl:w-[87%] min-h-screen m-0 text-arsenic">
         <Header head="Perfil" Icon={LibraryIcon} nameUniversity="UNAH" />
 
-        <section className="overflow-x-auto py-3 h-[calc(100vh-70px)] text-xs md:text-sm xl:text-base">
+        <section className="overflow-x-auto py-3 h-[calc(100vh-70px)] text-sm xl:text-base">
           <div className="sm:flex w-full sm:h-1/3 border-b-[1px] border-b-silverSand">
             <div className="w-full sm:w-1/4 border-b-[1px] sm:border-r-[1px] sm:border-b-[0px] border-r-silverSand border-b-silverSand p-1 ">
               <Image

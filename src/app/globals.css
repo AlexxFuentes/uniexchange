@@ -28,19 +28,23 @@
   }
 
   .buttonOrange {
-    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-mySin text-arsenic rounded-xl text-base md:text-lg xl:text-xl font-bold shadow-md shadow-silverSand/50
+    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-mySin text-arsenic rounded-xl text-base md:text-lg xl:text-xl hover:bg-mySin/90 font-bold shadow-md shadow-silverSand/50
   }
 
   .buttonBlack {
-    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-arsenic text-blackWhite rounded-xl text-base md:text-lg xl:text-xl font-bold shadow-md shadow-silverSand/50
+    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-arsenic text-blackWhite rounded-xl text-base md:text-lg xl:text-xl hover:bg-arsenic/90 font-bold shadow-md shadow-silverSand/50
   }
 
   .box {
-    @apply p-6 sm:p-10 border-[1px] border-silverSand/40 shadow-md shadow-silverSand/50 rounded-xl
+    @apply p-6 sm:p-10 border-[1px] border-silverSand/40 shadow-custom shadow-silverSand/50 rounded-xl
   }
 
   .boxHome {
-    @apply p-6 sm:p-10 md:p-16 md:px-4 xl:px-10 border-[1px] border-silverSand/40 shadow-md shadow-silverSand/50 rounded-xl
+    @apply p-6 sm:p-10 md:p-16 md:px-4 xl:px-10 border-[1px] border-silverSand/40 shadow-custom shadow-silverSand/50 rounded-xl 
+  }
+
+  .boxBig {
+    @apply overflow-x-auto border-[1px] border-silverSand/40 shadow-custom shadow-silverSand/50 rounded-xl mx-3
   }
   
 

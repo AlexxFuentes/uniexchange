@@ -12,7 +12,7 @@ export default function DataHome({
   link: string;
 }) {
   return (
-    <div className="boxHome m-auto md:m-0 w-2/3 md:w-auto flex flex-col sm:flex-row justify-between items-center gap-5">
+    <div className="boxHome m-auto md:m-0 w-4/5 md:w-auto flex flex-col sm:flex-row justify-between items-center gap-5">
       <div className="flex flex-col gap-5 justify-center items-center sm:items-start">
         <Icon className="h-10 w-10 sm:h-12 sm:w-12 xl:h-14 xl:w-14" />
         <h1 className=" text-base md:text-lg xl:text-xl">{name}</h1>

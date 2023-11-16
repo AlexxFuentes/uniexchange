@@ -35,6 +35,10 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+
+      boxShadow: {
+        custom: '0 0 15px  #3B424C',
+      },
     },
   },
   plugins: [],
