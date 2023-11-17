@@ -12,7 +12,7 @@ export default function Header() {
                         <a className='block text-arsenic dark:text-white' href='/'>
                             <Image
                                 src={'/logo_sidebar.png'}
-                                className='w-40  hover:brightness-95' width={900} height={20} alt={'logo img'}                                
+                                className='w-40  hover:brightness-95' width={900} height={20} alt={'logo img'} priority                               
                             />
                         </a>
                     </div>

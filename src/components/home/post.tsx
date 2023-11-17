@@ -21,7 +21,7 @@ export default function Post({ post, id }: PostProps) {
 
     const [open, setOpen] = useRecoilState(modalState)
     const [postId, setPostId] = useRecoilState(postIdState)
-    const { login, loginWithGoogle, user } = useAuth()
+    const { user } = useAuth()
     const [likes, setLikes] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
     const [hasLiked, setHasLiked] = useState(false)
     const [comments, setComments] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
@@ -73,7 +73,10 @@ export default function Post({ post, id }: PostProps) {
 
     return (
         <div className='flex p-3 cursor-pointer border-b border-silverSand'>
-            <Image className='h-10 w-10 rounded-full mr-4' src={post?.data()?.userImg || './avatar.svg'} alt={'user-img'} width={900} height={100} />
+            <Image className='h-10 w-10 rounded-full mr-4'
+                src={post?.data()?.userImg || './avatar.svg'} alt={'user-img'}
+                width={900} height={100}
+            />
 
             <div className='flex-1'>
                 <div className='flex items-center justify-between'>
@@ -90,19 +93,72 @@ export default function Post({ post, id }: PostProps) {
                         <DotsHorizontalIcon className='h-10 hoverEffect w-10 hover:bg-silverSand hover:text-black p-2' />
                     </div>
                 </div>
-                <p 
+                <p
                     onClick={() => router.push(`/post/${post.id}`)}
                     className='text-arsenic text-[15px] sm:text-[16px] mb-2'
                 >
                     {post?.data()?.text}
                 </p>
-                <Image className='rounded-2xl mr-2' src={post?.data()?.image} alt={'post-img'} width={500} height={500} priority />
+                <Image
+                    onClick={() => router.push(`/posts/${id}`)}
+                    className='rounded-2xl mr-2' src={post?.data()?.image} alt={'post-img'}
+                    width={500} height={500} priority
+                />
 
-                <div className='flex justify-between text-gray-500 p-2'>
-                    <ChatIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-mySin' />
-                    <TrashIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-red' />
-                    <HeartIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-red' />
+                <div className='flex justify-between text-arsenic p-2'>
+                    <div className='flex items-center select-none'>
+                        <ChatIcon
+                            onClick={() => {
+                                if (!user) {
+                                    router.push('/auth/signin')
+                                } else {
+                                    setPostId(id);
+                                    setOpen(!open);
+                                }
+                            }}
+                            className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-mySin'
+                        />
+
+                        {comments.length > 0 && (
+                            <span className="text-sm">{comments.length}</span>
+                        )}
+                    </div>
+
+                    {
+                        (user?.uid === post?.data()?.id) && (
+                            <TrashIcon 
+                                onClick={deletePost}
+                                className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-red' 
+                            />
+                        )
+                    }
+
+                    <div className='flex items-center'>
+                        {
+                            hasLiked ? (
+                                <HeartIconFilled
+                                    onClick={likePost}
+                                    className='h-9 w-9 hoverEffect p-2 text-red hover:bg-red'
+                                />
+                            ) : (
+                                <HeartIcon
+                                    onClick={likePost}
+                                    className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-red'
+                                />
+                            )
+                        }
+                        {likes.length > 0 && (
+                            <span
+                                className={`${hasLiked && "text-red-600"} text-sm select-none`}
+                            >
+                                {" "}
+                                {likes.length}
+                            </span>
+                        )}
+                    </div>
+
                     <ShareIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-malibu' />
+
                     <ChartBarIcon className='h-9 w-9 hoverEffect p-2 hover:bg-arsenic hover:text-malibu' />
                 </div>
             </div>

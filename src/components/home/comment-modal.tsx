@@ -5,27 +5,29 @@ import { useEffect, useState } from 'react'
 import { db } from '@/config/firebase.config'
 import { DocumentData, QueryDocumentSnapshot, addDoc, collection, doc, onSnapshot, serverTimestamp } from 'firebase/firestore'
 import { useAuth } from '@/context/auth-context'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Modal from 'react-modal'
 
 export default function CommentModal() {
 
-    const [open, setOpen] = useRecoilState(modalState);
-    const router = useRouter();
-    const [postId] = useRecoilState(postIdState);
-    const [post, setPost] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>>();
-    const [input, setInput] = useState('');
-    const { user } = useAuth();
+    const [open, setOpen] = useRecoilState(modalState)
+    const router = useRouter()
+    const pathname = usePathname()
+    const [postId] = useRecoilState(postIdState)
+    const [post, setPost] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>>()
+    const [input, setInput] = useState('')
+    const { user } = useAuth()
 
     useEffect(() => {
-        onSnapshot(doc(db, "posts", postId), (snapshot) => {
+        const unsubscribe = onSnapshot(doc(db, 'posts', postId), (snapshot) => {
             setPost(snapshot as QueryDocumentSnapshot<DocumentData, DocumentData>);
         });
+        return () => unsubscribe();
     }, [postId]);
 
     async function sendComment() {
-        await addDoc(collection(db, "posts", postId, "comments"), {
+        await addDoc(collection(db, 'posts', postId, 'comments'), {
             comment: input,
             name: user?.displayName,
             username: user?.email.split("@")[0],
@@ -34,9 +36,15 @@ export default function CommentModal() {
             userId: user?.uid,
         });
 
-        setOpen(false);
-        setInput('');
-        router.push(`posts/${postId}`);
+        setOpen(false)
+        setInput('')
+
+        if (pathname === `/home/posts/${postId}`) {
+            router.refresh();
+        } else {
+            router.push(`/home/posts/${postId}`);
+        }
+
     }
 
     return (
@@ -71,9 +79,9 @@ export default function CommentModal() {
                             <span className="text-sm sm:text-[15px]">
                                 @{post?.data()?.username} -{" "}
                             </span>
-                            <span className="text-sm sm:text-[15px] hover:underline">
-                                {post?.data()?.timestamp?.toDate()}
-                            </span>
+                            {/* <span className="text-sm sm:text-[15px] hover:underline">
+                                {post?.data()?.timestamp?.toDate() || new Date().toLocaleDateString()}
+                            </span> */}
                         </div>
                         <p className="text-gray-500 text-[15px] sm:text-[16px] ml-16 mb-2">
                             {post?.data()?.text}
@@ -84,8 +92,10 @@ export default function CommentModal() {
                                 src={user?.photoURL || './avatar.png'}
                                 alt="user-img"
                                 className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
+                                width={900}
+                                height={100}
                             />
-                            <div className="w-full divide-y divide-gray-200">
+                            <div className="w-full divide-y divide-arsenic">
                                 <div className="">
                                     <textarea
                                         className="w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700"
@@ -100,7 +110,7 @@ export default function CommentModal() {
                                     <div className="flex">
                                         <div
                                             className=""
-                                        // onClick={() => filePickerRef.current.click()}
+                                            // onClick={() => filePickerRef.current.click()}
                                         >
                                             <PhotographIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
                                             {/* <input
@@ -115,9 +125,9 @@ export default function CommentModal() {
                                     <button
                                         onClick={sendComment}
                                         disabled={!input.trim()}
-                                        className="bg-blue-400 text-white px-4 py-1.5 rounded-full font-bold shadow-md hover:brightness-95 disabled:opacity-50"
+                                        className="bg-malibu text-white px-4 py-1.5 rounded-full font-bold shadow-md hover:brightness-95 disabled:opacity-50"
                                     >
-                                        Reply
+                                        Responder
                                     </button>
                                 </div>
                             </div>

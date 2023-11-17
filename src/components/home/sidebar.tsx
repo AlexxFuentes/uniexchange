@@ -13,9 +13,8 @@ import Link from 'next/link'
 import React from 'react'
 
 export default function Sidebar() {
-    const profileUrl = './avatar.svg'
+    
     const router = useRouter()
-
     const { user, logout, login, } = useAuth()
 
     const handleLogout = (e: React.MouseEvent) => {

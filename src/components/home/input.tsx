@@ -9,9 +9,7 @@ import React, { useState, useRef } from 'react'
 
 export default function Input() {
 
-    const profileUrl = './avatar.svg'
     const { user } = useAuth()
-
     const [input, setInput] = useState<string>('')
     const [selectedFile, setSelectedFile] = useState<string | null>(null)
     const [loading, setLoading] = useState<boolean>(false)

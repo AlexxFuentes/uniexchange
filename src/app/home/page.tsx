@@ -2,6 +2,7 @@
 import Sidebar from '@/components/home/sidebar'
 import Feed from '@/components/home/feed'
 import Widgets from '@/components/home/widgets'
+import CommentModal from '@/components/home/comment-modal'
 
 export default function Home() {
 
@@ -12,6 +13,8 @@ export default function Home() {
             <Feed />
 
             <Widgets />
+
+            <CommentModal />
         </main>
     );
 }

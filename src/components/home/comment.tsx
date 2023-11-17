@@ -30,6 +30,7 @@ export default function Comment({ comment, commentId, originalPostId }: CommentP
             collection(db, 'posts', originalPostId, 'comments', commentId, 'likes'),
             (snapshot) => setLikes(snapshot.docs)
         );
+        return () => unsubscribe();
     }, [originalPostId, commentId]);
 
     useEffect(() => {
@@ -56,7 +57,7 @@ export default function Comment({ comment, commentId, originalPostId }: CommentP
     }
 
     async function deleteComment() {
-        if (window.confirm('Are you sure you want to delete this comment')) {
+        if (window.confirm('¿Esta seguro que quiere eliminar el comentario?')) {
             deleteDoc(doc(db, 'posts', originalPostId, 'comments', commentId));
         }
     }
@@ -74,7 +75,6 @@ export default function Comment({ comment, commentId, originalPostId }: CommentP
             {/* right side */}
             <div className='flex-1'>
                 {/* Header */}
-
                 <div className='flex items-center justify-between'>
                     {/* post user info */}
                     <div className='flex items-center space-x-1 whitespace-nowrap'>
@@ -88,19 +88,15 @@ export default function Comment({ comment, commentId, originalPostId }: CommentP
                             {comment?.data().timestamp?.toDate().toLocaleDateString()}
                         </span>
                     </div>
-
-                    {/* dot icon */}
                     <DotsHorizontalIcon className='h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2 ' />
                 </div>
 
                 {/* post text */}
-
                 <p className='text-gray-800 text-[15px sm:text-[16px] mb-2'>
                     {comment?.data().comment}
                 </p>
 
                 {/* icons */}
-
                 <div className='flex justify-between text-gray-500 p-2'>
                     <div className='flex items-center select-none'>
                         <ChatIcon
