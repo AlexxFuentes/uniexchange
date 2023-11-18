@@ -71,7 +71,9 @@ export default function Students() {
     },
   ];
 
-  const [modalStates, setModalStates] = useState<boolean[]>(Array(students.length).fill(false));
+  const [modalStates, setModalStates] = useState<boolean[]>(
+    Array(students.length).fill(false)
+  );
 
   const handleOpenModal = (index: number) => {
     // Crear una copia del array modalStates y actualizar el estado para el estudiante seleccionado
@@ -130,25 +132,19 @@ export default function Students() {
 
                 {/* Modal */}
                 {modalStates[index] && (
-                  <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                    {/* ... contenido del modal ... */}
+                  <div className="fixed inset-0 z-10 w-screen overflow-y-auto bg-arsenic/40 ">
                     <div
                       className="relative z-10"
                       aria-labelledby="modal-title"
                       role="dialog"
                       aria-modal="true"
                     >
-                      <div className="fixed inset-0 bg-arsenic/40 bg-opacity-100 transition-opacity">
-                        {" "}
-                      </div>
-
                       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
                         <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
-                          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-4 w-3/4 sm:max-w-lg">
+                          <div className="relative rounded-lg bg-white text-left shadow-xl  sm:my-4 w-full sm:max-w-xl">
                             <div className="bg-white">
                               <div className="sm:flex sm:items-center">
                                 <div className=" text-center  sm:text-left w-full ">
-
                                   <div className="sm:flex justify-center w-full sm:h-1/3 border-b-[1px] border-b-silverSand">
                                     <div className="w-full sm:w-2/5 border-b-[1px] sm:border-r-[1px] sm:border-b-[0px] border-r-silverSand border-b-silverSand p-1 ">
                                       <Image
@@ -161,31 +157,37 @@ export default function Students() {
                                     </div>
                                     <div className="w-full sm:w-9/12 px-3 p-3">
                                       <h1 className="font-bold text-base md:text-lg xl:text-xl">
-                                      {student.nombre} {student.apellido}
+                                        {student.nombre} {student.apellido}
                                       </h1>
                                       <div className="flex flex-col gap-6">
                                         <p className="">{student.correo}</p>
-                                        <p className="">Genero: {student.genero}</p>
-                                        <p className="">Direccion: {student.direccion}</p>
-                                        <p className="">Facultades: {student.facultades}</p>
-                                        <p className="">Publicaciones: {student.publicaciones}</p>
+                                        <p className="">
+                                          Genero: {student.genero}
+                                        </p>
+                                        <p className="">
+                                          Direccion: {student.direccion}
+                                        </p>
+                                        <p className="">
+                                          Facultades: {student.facultades}
+                                        </p>
+                                        <p className="">
+                                          Publicaciones: {student.publicaciones}
+                                        </p>
                                       </div>
                                     </div>
                                   </div>
 
                                   <div className="w-full h-auto p-3 ">
-                                    <p className="">
-                                      {student.descripcion}
-                                    </p>
+                                    <p className="">{student.descripcion}</p>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div className="border-t-[1px] border-t-silverSand px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                            <div className="border-t-[1px] border-t-silverSand px-4 py-3 sm:flex  sm:px-6">
                               <button
                                 onClick={() => handleCloseModal(index)}
                                 type="button"
-                                className=" m-auto inline-flex w-full justify-center buttonOrange sm:w-auto"
+                                className=" m-auto w-full buttonOrange sm:w-auto"
                               >
                                 Cerrar
                               </button>

@@ -25,7 +25,7 @@ export default function Home() {
             </div>
 
             <div className="w-full sm:w-1/4 flex justify-center items-center ">
-              <button className="buttonOrange">Fecha</button>
+              <button className="buttonOrange">Novedades</button>
             </div>
           </div>
         </section>
