@@ -2,14 +2,14 @@ import { SearchIcon } from "@heroicons/react/outline";
 import Calification from "@/components/university/calification";
 import { useState } from "react";
 
-export default function ModalJefe({
-  facult,
+export default function ModalDocente({
+  university,
   text,
-  handleCloseModalJefe,
+  handleCloseModalDocente,
 }: {
-  facult: string;
+  university: string;
   text: string;
-  handleCloseModalJefe: () => void;
+  handleCloseModalDocente: () => void;
 }) {
   interface Professor {
     id: number;
@@ -66,6 +66,9 @@ export default function ModalJefe({
     if (!newSelection[index]) {
       setProfessorSelection(newSelection);
     }
+    /* else if (newSelection[index]) {
+        setProfessorSelection(newSelection);
+      } */
     else {
       const updatedSelection = newSelection.map((_, i) => (i === index ? true : false));
       setProfessorSelection(updatedSelection);
@@ -89,7 +92,7 @@ export default function ModalJefe({
                 <div className="sm:flex sm:items-center p-2  text-center">
                   <div className="w-full px-3 p-3 flex justify-center items-center flex-col gap-2">
                     <h1 className="font-bold text-base md:text-lg xl:text-xl">
-                      ¿Que docente asignaras como jefe de la facultad "{facult}"?
+                      ¿Que docentes forman parte de {university}?
                     </h1>
                     <div className="">
                       <p className="">{text}</p>
@@ -159,11 +162,11 @@ export default function ModalJefe({
                   type="button"
                   className=" w-full buttonBlack sm:w-auto  mb-2 sm:mb-0"
                 >
-                  Asignar jefe
+                  Añadir docente
                 </button>
 
                 <button
-                  onClick={() => handleCloseModalJefe()}
+                  onClick={() => handleCloseModalDocente()}
                   type="button"
                   className="w-full buttonOrange sm:w-auto"
                 >

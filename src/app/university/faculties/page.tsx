@@ -144,7 +144,7 @@ export default function Faculties() {
                 {modalStatesJefe[index] && (
                   <ModalJefe
                   facult={facultad.nombre}
-                    text="¡Esta docentes administrara la facultad!"
+                    text="¡Este docente administrara la facultad!"
                     handleCloseModalJefe={() => handleCloseModalJefe(index)}
                   />
                 )}
