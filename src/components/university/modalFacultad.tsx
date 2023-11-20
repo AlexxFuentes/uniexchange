@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 export default function ModalFacultad({
   university,
@@ -61,15 +61,16 @@ export default function ModalFacultad({
   const handleSeleccionado = (index: number) => {
     const newSelection = [...professorSelection];
     newSelection[index] = !newSelection[index];
-  
+
     if (!newSelection[index]) {
       setProfessorSelection(newSelection);
-    }
-    /* else if (newSelection[index]) {
+    } else {
+      /* else if (newSelection[index]) {
         setProfessorSelection(newSelection);
       } */
-    else {
-      const updatedSelection = newSelection.map((_, i) => (i === index ? true : false));
+      const updatedSelection = newSelection.map((_, i) =>
+        i === index ? true : false
+      );
       setProfessorSelection(updatedSelection);
     }
   };
@@ -100,18 +101,45 @@ export default function ModalFacultad({
                 </div>
               </div>
               <div className="p-3 text-left w-full h-auto">
-                <section className="boxBig flex-1 flex flex-col h-[calc(100vh-350px)] overflow-y-auto ">
-                  Hola
+                <section className="boxBig flex flex-col items-center justify-center h-[calc(100vh-350px)] overflow-y-auto p-3">
+                  <form className=" w-full h-full max-w-xl m-3 flex flex-col justify-center gap-5 ">
+                    <label htmlFor="">
+                      Ingresa una imagen para la facultad
+                    </label>
+                    <div className="w-full h-44 p-8 rounded-xl font-medium bg-transparent border border-arsenic text-sm flex justify-center items-center cursor-pointer">
+                      <FaPlus className="w-12 h-12 text-mySin" />
+                    </div>
+
+                    <input
+                      className="w-full px-8 py-4 rounded-xl font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white"
+                      type="text"
+                      placeholder="Nombre de la facultad"
+                      required
+                    />
+
+                    <select
+                      name="jefe"
+                      id="jefe"
+                      className="w-full px-8 py-4 rounded-xl font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white "
+                    >
+                      <option value="">Jefe de la facultad</option>
+                      <option value="">asdasdasdas</option>
+                    </select>
+
+                    <textarea
+                      className="w-full px-8 py-4 rounded-xl font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white "
+                      placeholder="Descripcion"
+                      rows={5}
+                      required
+                    />
+
+                    <button type="submit" className=" buttonBlack">
+                      Crear facultad
+                    </button>
+                  </form>
                 </section>
               </div>
-              <div className="border-t-[1px] border-t-silverSand px-4 py-3 sm:flex justify-end gap-2 sm:px-6">
-                <button
-                  type="button"
-                  className=" w-full buttonBlack sm:w-auto  mb-2 sm:mb-0"
-                >
-                  Crear facultad
-                </button>
-
+              <div className="border-t-[1px] border-t-silverSand px-4 py-3 sm:flex justify-center gap-2 sm:px-6">
                 <button
                   onClick={() => handleCloseModalFacultad()}
                   type="button"

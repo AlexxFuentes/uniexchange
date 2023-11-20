@@ -21,6 +21,7 @@ export default function Box({
 
   const handleOpenModal = () => {
     // Abre el modal de Docente
+    // Esta condicion tambien puede ser atravez de la ruta usando next navigation
     if (button === "Añadir docente") {
       setModalStatesDocente(true);
     }

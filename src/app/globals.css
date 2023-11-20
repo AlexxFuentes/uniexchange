@@ -28,11 +28,11 @@
   }
 
   .buttonOrange {
-    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-mySin text-arsenic rounded-xl text-base md:text-lg xl:text-xl hover:bg-mySin/90 font-bold shadow-md shadow-silverSand/50
+    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-mySin text-arsenic rounded-xl text-base md:text-lg xl:text-xl hover:bg-mySin/90 font-bold shadow-md shadow-silverSand/50 transition-all duration-300 ease-in-out
   }
 
   .buttonBlack {
-    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-arsenic text-blackWhite rounded-xl text-base md:text-lg xl:text-xl hover:bg-arsenic/90 font-bold shadow-md shadow-silverSand/50
+    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-arsenic text-blackWhite rounded-xl text-base md:text-lg xl:text-xl hover:bg-arsenic/90 font-bold shadow-md shadow-silverSand/50 transition-all duration-300 ease-in-out
   }
 
   .box {

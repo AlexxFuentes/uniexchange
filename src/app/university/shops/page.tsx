@@ -100,7 +100,7 @@ export default function Shops() {
                   <h1 className="font-bold text-base md:text-lg xl:text-xl">
                     {shop.nombre}
                   </h1>
-                  <span>jefe: {shop.propietario}</span>
+                  <span>Propietario: {shop.propietario}</span>
                   <span>Direccion: {shop.ubicacion}</span>
                   <span>Descripcion: {shop.descripcion}</span>
                 </div>
