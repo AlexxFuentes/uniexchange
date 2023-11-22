@@ -15,6 +15,39 @@
   .hoverEffect {
     @apply cursor-pointer hover:bg-silverSand rounded-full w-[52px] xl:w-auto h-[52px] xl:h-auto xl:p-3;
   }
+
+  .hoverUniversity {
+    @apply cursor-pointer xl:w-full bg-mySin300 bg-opacity-50  sm:rounded-xl xl:px-1 font-bold xl:text-sm 2xl:text-lg
+  }
+  .hoverUniversityLine {
+    @apply w-1 h-full bg-mySin absolute right-[0px] sm:right-[-10px] xl:right-[-20px]
+  }
+
+  .hoverUniversityProfiel {
+    @apply cursor-pointer xl:w-full bg-mySin300 bg-opacity-50  sm:rounded-2xl xl:px-1 
+  }
+
+  .buttonOrange {
+    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-mySin text-arsenic rounded-xl text-base md:text-lg xl:text-xl hover:bg-mySin/90 font-bold shadow-md shadow-silverSand/50 transition-all duration-300 ease-in-out
+  }
+
+  .buttonBlack {
+    @apply px-6 py-1 md:px-8 md:py-2 xl:px-10 xl:py-2 2xl:px-14 2xl:py-2 w-auto h-auto bg-arsenic text-blackWhite rounded-xl text-base md:text-lg xl:text-xl hover:bg-arsenic/90 font-bold shadow-md shadow-silverSand/50 transition-all duration-300 ease-in-out
+  }
+
+  .box {
+    @apply p-6 sm:p-10 border-[1px] border-silverSand/40 shadow-custom shadow-silverSand/50 rounded-xl
+  }
+
+  .boxHome {
+    @apply p-6 sm:p-10 md:p-16 md:px-4 xl:px-10 border-[1px] border-silverSand/40 shadow-custom shadow-silverSand/50 rounded-xl 
+  }
+
+  .boxBig {
+    @apply overflow-x-auto border-[1px] border-silverSand/40 shadow-custom shadow-silverSand/50 rounded-xl mx-3
+  }
+  
+
 }
 
 body {

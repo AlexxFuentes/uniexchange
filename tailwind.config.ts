@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     colors: {
       mySin: '#FEAA26',
+      mySin300: '#E29822',
       malibu: '#03C0EB',
       silverSand: '#C0C0BE',
       blackWhite: '#E6E5DD',
@@ -33,6 +34,10 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+
+      boxShadow: {
+        custom: '0 0 15px  #3B424C',
       },
     },
   },

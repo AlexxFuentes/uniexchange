@@ -1,5 +1,6 @@
 'use client'
-import Sidebar from '@/components/home/sidebar'
+// import Sidebar from '@/components/home/sidebar'
+import Sidebar from "@/components/university/sidebar";
 import Feed from '@/components/home/feed'
 import Widgets from '@/components/home/widgets'
 import CommentModal from '@/components/home/comment-modal'

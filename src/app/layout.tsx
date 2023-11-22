@@ -1,10 +1,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Quicksand } from 'next/font/google'
 import { AuthProvider } from '../context/auth-context'
 import { RecoilRootWrapper } from '@/config/RecoilRootWrapper'
 
-const inter = Inter({ subsets: ['latin'] })
+const quicksand = Quicksand({ 
+  weight: ["400", "500", "600", "700"],
+  subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'UniExchange',
@@ -18,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={quicksand.className}>
         <AuthProvider>
           <RecoilRootWrapper>
             {children}
