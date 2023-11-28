@@ -1,5 +1,4 @@
 "use client";
-
 import { AcademicCapIcon } from "@heroicons/react/outline";
 import Header from "@/components/university/header";
 import Box from "@/components/university/box";
@@ -7,6 +6,7 @@ import { FaTrash } from "react-icons/fa";
 import React, { useState } from "react";
 import ModalEliminar from "@/components/university/modalEliminar";
 import ModalJefe from "@/components/university/modalJefe";
+import Image from 'next/image'
 
 export default function Faculties() {
   interface Facult {
@@ -104,10 +104,15 @@ export default function Faculties() {
               key={facultad.id}
             >
               <div className="sm:flex justify-center items-center gap-4 mr-2">
-                <img
+                {/* <img
                   src={`${facultad.image}`}
                   alt="logo img"
                   className="rounded-lg w-full max-w-[10rem] md:max-w-[15rem] xl:max-w-xs m-auto "
+                /> */}
+
+                <Image className='rounded-lg w-full max-w-[10rem] md:max-w-[15rem] xl:max-w-xs m-auto'
+                  src={`${facultad.image}`} alt={'logo img'}
+                  width={900} height={100}
                 />
 
                 <div className="flex text-center sm:text-left flex-col gap-1 my-2 sm:my-0">
@@ -143,7 +148,7 @@ export default function Faculties() {
 
                 {modalStatesJefe[index] && (
                   <ModalJefe
-                  facult={facultad.nombre}
+                    facult={facultad.nombre}
                     text="¡Este docente administrara la facultad!"
                     handleCloseModalJefe={() => handleCloseModalJefe(index)}
                   />

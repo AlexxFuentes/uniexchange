@@ -24,7 +24,7 @@ export default function Sidebar() {
     }
 
     return (
-        <div className='hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24'>
+        <div className='hidden sm:flex flex-col p-2 xl:items-start h-screen xl:ml-16'>{/* fixed */}
 
             {
                 user && (
@@ -32,7 +32,7 @@ export default function Sidebar() {
                         <Image 
                             className='h-10 w-10 rounded-full xl:mr-2' 
                             width={900} height={100} 
-                            src={user.photoURL} 
+                            src={user.photoURL || './avatar.svg'} 
                             alt={'profile img'} 
                         />
                         <div className='leading-5 hidden xl:inline'>

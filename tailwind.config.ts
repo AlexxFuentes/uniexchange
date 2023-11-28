@@ -14,11 +14,6 @@ const config: Config = {
       silverSand: '#C0C0BE',
       blackWhite: '#E6E5DD',
       arsenic: '#3B424C',
-      // mySin: '#FEAA26',// Naranja
-      // malibu: '#02C0EB',// Azul
-      // arsenic: '#3B424c',// Gris
-      // silverSand: '#C0C0BE',// Gris
-      // blackWhite: '#E6E5DD',// Gris
       white: '#FFFFFF',
       black: '#000000',
       red: '#FF0000',
@@ -41,6 +36,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }
 export default config

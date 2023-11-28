@@ -41,7 +41,7 @@ export default function Widgets() {
     ]
 
     return (
-        <div className='xl:w-[600px] hidden lg:inline ml-8 mb-4 space-y-5'>
+        <div className='hidden xl:w-full lg:inline px-5 space-y-5 h-screen overflow-y-auto scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin'>
             <div className='w-[90%] xl:w-[75%] sticky top-0 py-1.5 z-50'>
                 <div className='flex items-center p-3 rounded-full bg-white relative'>
                     <SearchIcon className='h-5 z-50 text-arsenic' />
@@ -85,7 +85,8 @@ export default function Widgets() {
                 </button>
             </div>
 
-            <div className='sticky top-16 text-center text-silverSand space-y-3 bg-white shadow-2xl pt-2 rounded-xl w-[90%] xl:w-[75%]'>
+            {/* <div className='sticky top-16 text-center text-silverSand space-y-3 bg-white shadow-2xl pt-2 rounded-xl w-[90%] xl:w-[75%]'> */}
+            <div className='sticky top-16 text-center text-silverSand space-y-3 bg-white shadow-2xl py-2 rounded-xl w-[90%] xl:w-[75%]'>
                 <h4 className='font-bold text-xl px-4 text-arsenic'>Usuarios</h4>
 
                 {
