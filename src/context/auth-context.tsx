@@ -54,9 +54,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const register = async (email: string, password: string) => {
         try {
             const resp = await createUserWithEmailAndPassword(auth, email, password)
-            console.log(resp);
+            // console.log(resp);
             router.push('/home')
-            return
+            return resp
         } catch (error) {
             console.error(error)
         }
@@ -66,7 +66,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         try {
             const resp = await signInWithEmailAndPassword(auth, email, password)
             router.push('/home')
-            console.log(resp);         
+            // console.log(resp);         
             return   
         } catch (error) {
             console.error(error)

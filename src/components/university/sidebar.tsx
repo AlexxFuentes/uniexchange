@@ -1,16 +1,16 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { HomeIcon } from "@heroicons/react/solid";
-import { AcademicCapIcon, DotsHorizontalIcon } from "@heroicons/react/outline";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { PiStudentBold } from "react-icons/pi";
-import { AiFillShop, AiFillCreditCard } from "react-icons/ai";
-import { BiLogOut } from "react-icons/bi";
-import { ReactNode } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+"use client"
+import Link from "next/link"
+import Image from "next/image"
+import { HomeIcon } from "@heroicons/react/solid"
+import { AcademicCapIcon, DotsHorizontalIcon } from "@heroicons/react/outline"
+import { FaChalkboardTeacher } from "react-icons/fa"
+import { PiStudentBold } from "react-icons/pi"
+import { AiFillShop, AiFillCreditCard } from "react-icons/ai"
+import { BiLogOut } from "react-icons/bi"
+import { ReactNode } from "react"
+import { useState } from "react"
+import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 export default function Sidebar() {
   interface Links {
@@ -111,7 +111,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <section className="w-[10%] xl:w-[18%] sm:p-1 sm:px-2 xl:px-5 xl:py-2 min-h-screen border-r-[1px] border-r-silverSand xl:text-sm 2xl:text-lg text-arsenic">
+    <section className="w-[10%] xl:w-[19%] sm:p-1 sm:px-2 xl:px-5 xl:py-2 min-h-screen border-r-[1px] border-r-silverSand xl:text-sm 2xl:text-lg text-arsenic">
       <div className="border-b-[1px] border-b-silverSand h-[50px] flex items-center justify-center ">
         {showGif ? (
           <Image
@@ -206,8 +206,7 @@ export default function Sidebar() {
               <AiFillCreditCard className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
               <div>
                 <div className=" hidden xl:block">
-                  <p className="font-bold">Plan:</p>
-                  <p>Profesional</p>
+                  <p className="font-bold">Plan: <span className="font-normal">Profesional</span></p>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 'use client'
-
+import Image from 'next/image'
 import { FaChalkboardTeacher } from "react-icons/fa";
 import Header from "@/components/university/header";
 import Box from "@/components/university/box";
@@ -89,13 +89,19 @@ export default function Professors() {
         <section className="boxBig flex-1 flex flex-col">
           {professors.map((professor, index) => (
             <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center"
-            key={professor.id}>
+              key={professor.id}>
               <div className="sm:flex justify-center items-center gap-4 mr-2">
-                <img
+                <Image
+                  src={`${professor.image}`}
+                  className='rounded-lg w-full max-w-[6rem] md:max-w-[9rem] xl:max-w-[13rem] m-auto'
+                  width={900} height={100} alt='logo img'
+                  priority
+                />
+                {/* <img
                   src={`${professor.image}`}
                   alt="logo img"
                   className="rounded-lg w-full max-w-[6rem] md:max-w-[9rem] xl:max-w-[13rem] m-auto "
-                />
+                /> */}
 
                 <div className="flex text-center sm:text-left flex-col gap-1 my-2 sm:my-0">
                   <h1 className="font-bold text-base md:text-lg xl:text-xl inset-0">
@@ -117,7 +123,7 @@ export default function Professors() {
               </div>
               <div className="flex justify-center">
                 <button className="buttonBlack whitespace-nowrap"
-                onClick={() => handleOpenModal(index)}>
+                  onClick={() => handleOpenModal(index)}>
                   Eliminar
                 </button>
 

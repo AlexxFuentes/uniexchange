@@ -32,7 +32,7 @@ export default function Feed() {
 
             <Input />
 
-            <div className='overflow-y-auto h-[513px] scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin'>
+            <div className='overflow-y-auto h-[513px] 2xl:h-[710px] scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin'>
                 {
                     posts.map((post) => (<Post key={post.id} post={post} id={post.id} />))
                 }

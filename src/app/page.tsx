@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Header from '@/components/landing-page/header'
 import Footer from '@/components/landing-page/footer'
+import FooterEnd from '@/components/landing-page/footer-end'
 import Card from '@/components/landing-page/card'
 import Link from 'next/link'
 import { IconUniversity, IconNimbus, IconStudent, IconUser, IconUserRegister } from '@/components/svg/icons'
@@ -58,6 +59,7 @@ export default function Home() {
       </div>
 
       <Footer />
+      <FooterEnd />
     </>
   )
 }
