@@ -1,6 +1,6 @@
 'use client'
 import Sidebar from '@/components/home/sidebar'
-import SavedP from '@/components/saved/saved';
+import SavedP from '@/components/home/saved/saved';
 import Widgets from '@/components/home/widgets'
 
 export default function Saved() {

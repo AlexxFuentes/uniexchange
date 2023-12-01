@@ -1,7 +1,7 @@
 'use client'
 import Sidebar from '@/components/home/sidebar'
 import Widgets from '@/components/home/widgets'
-import Notifications from '@/components/Notifications/notifications';
+import Notifications from '@/components/home/Notifications/notifications';
 
 export default function Notificationes() {
 
