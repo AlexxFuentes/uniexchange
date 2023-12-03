@@ -7,7 +7,7 @@ export default function Notificationes() {
 
     return (
         <main className='flex min-h-screen mx-auto'>
-            <Sidebar />
+            {/* <Sidebar /> */}
 
             <Notifications />
 

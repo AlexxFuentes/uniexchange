@@ -58,9 +58,9 @@ export default function Professors() {
 
     return (
         // border-l border-r border-silverSand xl:min-w-max h-full flex-grow max-w-xl
-        <div className=' border-l border-r border-silverSand xl:min-w-[576px] flex-grow max-w-xl'>
+        <div className=' border-l border-r border-silverSand xl:min-w-[576px] flex-grow max-w-xl h-screen overflow-y-auto'>
             {/*El Encabezado*/}
-            <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand'>
+            <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand bg-white'>
                 <h2 className='text-lg sm:text-xl font-bold cursor-pointer'>Docentes</h2>
                 <div className='hoverEffect flex items-center justify-center px-0 ml-auto w-9 h-9'>
                     <AcademicCapIcon className='h-7 w-7 text-arsenic cursor-pointer' />

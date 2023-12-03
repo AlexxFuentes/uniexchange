@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from "next/link"
 
 const facultadesData = [
     {
@@ -38,8 +39,8 @@ export default function Faculties() {
 
 
     return (
-        <div className='border-l border-r border-silverSand xl:min-w-[576px] flex-grow max-w-xl'>
-            <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand'>
+        <div className='border-l border-r border-silverSand xl:min-w-[576px] flex-grow max-w-xl h-screen overflow-y-auto'>
+            <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand bg-white'>
                 <h2 className='text-lg sm:text-xl font-bold cursor-pointer'>Facultades</h2>
             </div>
 
@@ -65,9 +66,11 @@ export default function Faculties() {
                         </div>
                     </div>
 
-                    <button className='bg-black text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline'>
+                                <Link href="/home/faculty">
+                    <button className='buttonBlack w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline'>
                         Ver Facultad
                     </button>
+                    </Link>
                 </div>
             ))}
 

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import Link from "next/link"
 interface NotificationProps {
     notification: {
         title: string;
@@ -16,9 +17,11 @@ export default function Notification({ notification }: NotificationProps) {
                 {imgn && <Image className='rounded-md w-60' width={900} height={70} src={imgn} alt='article-img' priority />}
                 <div className='flex flex-col'>
                     <h6 className='text-base font-medium text-arsenic'>{title}</h6>
-                    <button className='mt-2 bg-arsenic text-white px-6 py-1 rounded-lg font-normal shadow-md hover:bg-malibu disabled:opacity-70'>
-                        Novedades
+                    <Link href="/home/faculty">
+                    <button className='buttonBlack w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline'>
+                        Ver Facultad
                     </button>
+                    </Link>
                 </div>
             </div>
         </a>

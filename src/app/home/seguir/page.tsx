@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import Modal from 'react-modal'
 import Widgets from '@/components/home/widgets'
+import Link from "next/link"
 
 const SeguirData = [
     {
@@ -89,7 +90,7 @@ export default function Seguir() {
                             {/* Botón debajo del texto */}
                             <button
                                 onClick={() => openModal(seg)}
-                                className='bg-black rounded-lg border-b text-white w-60 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[17rem] mt-[ 1rem]'>
+                                className='buttonBlack border-b text-white w-60 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[17rem] mt-[ 1rem]'>
                                 Ver Facultades
                             </button>
                         </div>
@@ -135,13 +136,15 @@ export default function Seguir() {
                                 <span>Jefe: Luis Mejia</span>
                             </div>
                             <button
-                                className='bg-yellow rounded-lg border-b text-black w-40 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[4rem] mt-[-3rem]'>
+                                className='buttonOrange border-b text-black w-40 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[4rem] mt-[-3rem]'>
                                 Unirse
                             </button>
+                            <Link href="/home/faculty">
                             <button
-                                className='bg-black rounded-lg border-b text-white w-60 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[-12rem] mt-[6rem]'>
+                                className='buttonBlack border-b text-white w-60 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[-12rem] mt-[6rem]'>
                                 Ver Facultad
                             </button>
+                            </Link>
                         </div>
 
                     </div>

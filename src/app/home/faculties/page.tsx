@@ -6,7 +6,7 @@ import Widgets from '@/components/home/widgets'
 export default function Facultad() {
     return (
         <main className='flex min-h-screen mx-auto'>
-            <Sidebar />
+            {/* <Sidebar /> */}
 
             <ListFaculties />
 

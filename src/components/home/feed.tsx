@@ -22,7 +22,7 @@ export default function Feed() {
     return (
         // <div className='xl:ml-[370px] border-l border-r border-silverSand  xl:min-w-[576px] sm:ml-[73px] flex-grow max-w-xl'>
         // <div className='hidden sm:flex flex-col p-2 xl:items-start h-screen xl:ml-16'>{/* fixed */}
-        <div className='border-l border-r border-silverSand xl:min-w-max h-full flex-grow max-w-xl'>
+        <div className='border-l border-r border-silverSand xl:min-w-max min-h-screen flex-grow max-w-xl '>
             <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand'>
                 <h2 className='text-lg sm:text-xl font-bold cursor-pointer'>Inicio</h2>
                 <div className='hoverEffect flex items-center justify-center px-0 ml-auto w-9 h-9'>
@@ -32,7 +32,7 @@ export default function Feed() {
 
             <Input />
 
-            <div className='overflow-y-auto h-[513px] 2xl:h-[710px] scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin'>
+            <div className='overflow-y-auto h-[calc(100vh-200px)] scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin text-sm xl:text-base'>
                 {
                     posts.map((post) => (<Post key={post.id} post={post} id={post.id} />))
                 }

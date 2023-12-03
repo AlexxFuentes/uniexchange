@@ -95,7 +95,7 @@ export default function Post({ post, id }: PostProps) {
                 </div>
                 <p
                     onClick={() => router.push(`/post/${post.id}`)}
-                    className='text-arsenic text-[15px] sm:text-[16px] mb-2'
+                    className='text-arsenic text-sm xl:text-base mb-2'
                 >
                     {post?.data()?.text}
                 </p>

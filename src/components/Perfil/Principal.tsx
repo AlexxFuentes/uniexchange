@@ -52,7 +52,7 @@ export default function Perfil() {
     const filePickerRef = useRef<HTMLInputElement>(null)
 
     return (
-        <div className='xl:ml-[370px] border-l border-r border-silverSand  xl:min-w-[576px] sm:ml-[73px] flex-grow max-w-xl'>
+        <div className='w-full border-l border-r border-silverSand ml-0 flex-grow  '>
             {/*El Encabezado*/}
             <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand'>
                 <h2 className='text-lg sm:text-xl font-bold cursor-pointer'>Estudiantes</h2>

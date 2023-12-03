@@ -8,8 +8,8 @@ import CommentModal from '@/components/home/comment-modal'
 export default function Home() {
 
     return (
-        <main className='flex min-h-screen mx-auto'>{/* min-h-screen */}
-            <Sidebar />
+        <main className='flex min-h-screen mx-auto text-sm xl:text-base'>{/* min-h-screen */}
+            {/* <Sidebar /> */}
 
             <Feed />
 
