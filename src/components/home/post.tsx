@@ -149,9 +149,8 @@ export default function Post({ post, id }: PostProps) {
                         }
                         {likes.length > 0 && (
                             <span
-                                className={`${hasLiked && "text-red-600"} text-sm select-none`}
+                                className={`${hasLiked && "text-red"} text-sm select-none`}
                             >
-                                {" "}
                                 {likes.length}
                             </span>
                         )}
