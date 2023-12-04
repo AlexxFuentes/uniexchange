@@ -18,7 +18,6 @@ export default function Feed() {
         )
     }, [])
 
-
     return (
         <div className='border-l border-r border-silverSand xl:min-w-max min-h-screen flex-grow max-w-2xl'>
             <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand'>
@@ -30,7 +29,7 @@ export default function Feed() {
 
             <Input />
 
-            <div className='overflow-y-auto h-[calc(100vh-200px)] max-w-2xl scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin text-sm xl:text-base'>
+            <div className='overflow-y-auto h-[calc(100vh-200px)] max-w-2xl scrollbar-thumb-paste scrollbar-track-malibu scrollbar-thin text-sm xl:text-base'>
                 {
                     posts.map((post) => (<Post key={post.id} post={post} id={post.id} />))
                 }

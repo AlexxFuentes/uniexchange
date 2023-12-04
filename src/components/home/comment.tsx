@@ -67,7 +67,7 @@ export default function Comment({ comment, commentId, originalPostId }: CommentP
             {/* user image */}
             <Image
                 className='h-11 w-11 rounded-full mr-4'
-                src={comment?.data().userImg}
+                src={comment?.data().userImg || '/avatar.svg'}
                 alt='user-img'
                 width={900}
                 height={100}

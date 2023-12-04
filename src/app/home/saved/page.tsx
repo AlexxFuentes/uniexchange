@@ -6,7 +6,7 @@ import Widgets from '@/components/home/widgets'
 export default function Saved() {
 
     return (
-        <main className='flex min-h-screen mx-auto'>
+        <main className='flex min-h-screen'>
             {/* <Sidebar /> */}
 
             <SavedP />

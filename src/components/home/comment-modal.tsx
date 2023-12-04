@@ -88,7 +88,7 @@ export default function CommentModal() {
 
                         <div className="flex p-3 space-x-3">
                             <Image
-                                src={user?.photoURL || './avatar.png'}
+                                src={user?.photoURL || '/avatar.svg'}
                                 alt="user-img"
                                 className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
                                 width={900}

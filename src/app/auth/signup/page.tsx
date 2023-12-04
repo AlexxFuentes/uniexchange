@@ -5,7 +5,7 @@ import { useAuth } from '@/context/auth-context'
 import { useState } from 'react'
 import { Form } from '@/components/auth/form'
 import FooterEnd from '@/components/landing-page/footer-end'
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '@/config/firebase.config'
 
 export default function SignUp() {
@@ -40,16 +40,19 @@ export default function SignUp() {
                 nombre: nameInstitution,
                 pais: country,
                 is_university: is_university,
+                timestamp: serverTimestamp(),
                 usr_id: rest.user.uid,
             });
         } else if(is_teacher) {
             await addDoc(collection(db, 'teachers'), {
                 is_teacher: is_teacher,
+                timestamp: serverTimestamp(),
                 usr_id: rest.user.uid,
             });
         } else if(is_student) {
             await addDoc(collection(db, 'students'), {
                 is_student: is_student,
+                timestamp: serverTimestamp(),
                 usr_id: rest.user.uid,
             });
         }
