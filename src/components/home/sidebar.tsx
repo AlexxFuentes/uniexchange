@@ -44,7 +44,9 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <div className="hidden sm:flex flex-col p-2 xl:items-start h-screen xl:ml-16">
+    
+    <div className="hidden sm:flex flex-col p-2 xl:items-start h-screen xl:ml-10">
+      {/* hidden sm:flex flex-col p-2 xl:items-start h-screen xl:ml-10 */}
       {/* fixed */}
       <div className="border-b-[1px] border-b-silverSand h-[50px] flex items-center justify-center ">
         {showGif ? (
@@ -97,7 +99,6 @@ export default function Sidebar() {
         </div>
       )}
       
-
       <div className="mt-4 mb-2.5 xl:items-start w-full flex flex-col gap-5 border-t-[1px] border-t-silverSand pt-5">
         <SidebarMenuItem text="Inicio" Icon={HomeIcon} active link="/home" />
         <SidebarMenuItem text="Universidades" Icon={LibraryIcon} link="/home/seguir"/>
@@ -116,7 +117,7 @@ export default function Sidebar() {
           {/* <button className="buttonOrange rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">
             Post
           </button> */}
-          <div className=" w-full hover:hoverUniversity    text-arsenic flex items-center xl:justify-start mt-auto border-t-[1px] border-t-silverSand ">
+          <div className=" w-full hover:hoverUniversity text-arsenic flex items-center xl:justify-start mt-auto border-t-[1px] border-t-silverSand ">
             <button
               onClick={handleLogout}
               className="flex justify-center items-center "

@@ -44,7 +44,6 @@ export default function CommentModal() {
         } else {
             router.push(`/home/posts/${postId}`);
         }
-
     }
 
     return (
@@ -53,19 +52,19 @@ export default function CommentModal() {
                 <Modal
                     isOpen={open}
                     onRequestClose={() => setOpen(false)}
-                    className="max-w-lg w-[90%]  absolute top-24 left-[50%] translate-x-[-50%] bg-white border-2 border-gray-200 rounded-xl shadow-md"
+                    className="max-w-lg w-[90%] absolute top-24 left-[50%] translate-x-[-50%] bg-white border-2 border-arsenic rounded-xl shadow-md"
                 >
                     <div className="p-1">
-                        <div className="border-b border-gray-200 py-2 px-1.5">
+                        <div className="border-b border-arsenic py-2 px-1.5">
                             <div
                                 onClick={() => setOpen(false)}
                                 className="hoverEffect w-10 h-10 flex items-center justify-center"
                             >
-                                <XIcon className="h-[23px] text-gray-700 p-0" />
+                                <XIcon className="h-[23px] text-arsenic p-0" />
                             </div>
                         </div>
                         <div className="p-2 flex items-center space-x-1 relative">
-                            <span className="w-0.5 h-full z-[-1] absolute left-8 top-11 bg-gray-300" />
+                            <span className="w-0.5 h-full z-[-1] absolute left-8 top-11 bg-arsenic" />
                             <Image
                                 className="h-11 w-11 rounded-full mr-4"
                                 src={post?.data()?.userImg}
@@ -83,11 +82,11 @@ export default function CommentModal() {
                                 {post?.data()?.timestamp?.toDate() || new Date().toLocaleDateString()}
                             </span> */}
                         </div>
-                        <p className="text-gray-500 text-[15px] sm:text-[16px] ml-16 mb-2">
+                        <p className="text-arsenic text-[15px] sm:text-[16px] ml-16 mb-2">
                             {post?.data()?.text}
                         </p>
 
-                        <div className="flex  p-3 space-x-3">
+                        <div className="flex p-3 space-x-3">
                             <Image
                                 src={user?.photoURL || './avatar.png'}
                                 alt="user-img"
@@ -98,9 +97,9 @@ export default function CommentModal() {
                             <div className="w-full divide-y divide-arsenic">
                                 <div className="">
                                     <textarea
-                                        className="w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700"
+                                        className="w-full border-none focus:ring-0 text-lg placeholder-arsenic tracking-wide min-h-[50px] text-arsenic"
                                         rows={2}
-                                        placeholder="Tweet your reply"
+                                        placeholder="respuesta al post"
                                         value={input}
                                         onChange={(e) => setInput(e.target.value)}
                                     ></textarea>
@@ -112,7 +111,7 @@ export default function CommentModal() {
                                             className=""
                                             // onClick={() => filePickerRef.current.click()}
                                         >
-                                            <PhotographIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
+                                            <PhotographIcon className="h-10 w-10 hoverEffect p-2 text-malibu hover:bg-mySin" />
                                             {/* <input
                                                 type="file"
                                                 hidden
@@ -120,7 +119,7 @@ export default function CommentModal() {
                                                 onChange={addImageToPost}
                                             /> */}
                                         </div>
-                                        <EmojiHappyIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
+                                        <EmojiHappyIcon className="h-10 w-10 hoverEffect p-2 text-malibu hover:bg-mySin" />
                                     </div>
                                     <button
                                         onClick={sendComment}

@@ -48,12 +48,39 @@ export function Form({
     const countryRef = useRef<HTMLInputElement>(null);
     const addressRef = useRef<HTMLInputElement>(null);
 
-    // const [is_university, setIsUniversity] = useState<boolean>(false);
-    // const [is_teacher, setIsTeacher] = useState<boolean>(false);
-    // const [is_student, setIsStudent] = useState<boolean>(false);
-
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+
+        // verificar que los campos no esten vacios
+        if (emailRef.current && emailRef.current.value === '') {
+            alert('El campo email no puede estar vacio');
+            return;
+        }
+        if (passwordRef.current && passwordRef.current.value === '') {
+            alert('El campo password no puede estar vacio');
+            return;
+        }
+        if (type && passConfirmRef.current && passConfirmRef.current.value === '') {
+            alert('El campo password confirm no puede estar vacio');
+            return;
+        }
+        if (is_university && descriotionRef.current && descriotionRef.current.value === '') {
+            alert('El campo descripción no puede estar vacio');
+            return;
+        }
+        if (is_university && nameInstitutionRef.current && nameInstitutionRef.current.value === '') {
+            alert('El campo nombre de la institución no puede estar vacio');
+            return;
+        }
+        if (is_university && countryRef.current && countryRef.current.value === '') {
+            alert('El campo país no puede estar vacio');
+            return;
+        }
+        if (is_university && addressRef.current && addressRef.current.value === '') {
+            alert('El campo dirección no puede estar vacio');
+            return;
+        }
+
         handleButton(e);
 
         setTimeout(() => {
@@ -66,9 +93,20 @@ export function Form({
             if (type && passConfirmRef.current) {
                 passConfirmRef.current.value = '';
             }
+            if (type && descriotionRef.current) {
+                descriotionRef.current.value = '';
+            }
+            if (type && nameInstitutionRef.current) {
+                nameInstitutionRef.current.value = '';
+            }
+            if (type && countryRef.current) {
+                countryRef.current.value = '';
+            }
+            if (type && addressRef.current) {
+                addressRef.current.value = '';
+            }
         }, 3000);
     }
-
 
     useEffect(() => {
         if (is_university) {

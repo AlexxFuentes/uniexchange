@@ -44,11 +44,12 @@ export default function Seguir() {
     
     return (
         <main className='flex min-h-screen mx-auto'>
-            {/* Sidebar y otros elementos */}
             <div className='border-l border-r border-silverSand xl:min-w-[576px] flex-grow max-w-xl'>
                 <div className='flex py-2 px-3 sticky top-0 z-50 border-b border-silverSand'>
                     <h2 className='text-lg sm:text-xl font-bold cursor-pointer'>Universidades</h2>
                 </div>
+
+                
 
                 {SeguirData.map((seg, index) => (
                     <div key={index} className={`flex items-center p-4 ${index === 0 ? 'border-b border-silverSand mb-4' : ''}`}>
@@ -81,8 +82,8 @@ export default function Seguir() {
                                 />
                             </div>
 
-                            <h3 className='text-2xl font-bold mb-2 ml-[-1rem]  mt-[-8rem]'>{/* Agrega un identificador único, por ejemplo, seg.id */}</h3>
-                            <div className='text-base ml-[20rem]'>
+                            <h3 className='text-2xl font-bold mb-2 -ml-4 -mt-32'>{/* Agrega un identificador único, por ejemplo, seg.id */}</h3>
+                            <div className='text-base ml-80'>
                                 {seg.description.map((line, idx) => (
                                     <div key={idx}>{line}</div>
                                 ))}
@@ -90,7 +91,8 @@ export default function Seguir() {
                             {/* Botón debajo del texto */}
                             <button
                                 onClick={() => openModal(seg)}
-                                className='buttonBlack border-b text-white w-60 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[17rem] mt-[ 1rem]'>
+                                //buttonBlack border-b text-white w-60 h-12 font-bold shadow-md hover:brightness-95 text-lg ml-[-12rem] mt-[6rem]
+                                className='buttonBlack border-b text-white w-60 h-12 font-bold shadow-md hover:brightness-95 text-base ml-[17rem] mt-[1rem]'>
                                 Ver Facultades
                             </button>
                         </div>

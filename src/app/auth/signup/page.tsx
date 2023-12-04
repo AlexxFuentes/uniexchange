@@ -5,20 +5,19 @@ import { useAuth } from '@/context/auth-context'
 import { useState } from 'react'
 import { Form } from '@/components/auth/form'
 import FooterEnd from '@/components/landing-page/footer-end'
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from '@/config/firebase.config'
 
 export default function SignUp() {
 
     const auth = useAuth()
-    // const { displayName }  = auth.user
-    // console.log(displayName ? displayName : 'no hay usuario');
-
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [passConfirm, setPassConfirm] = useState<string>('')
     const [nameInstitution, setNameInstitution] = useState<string>('')
     const [country, setCountry] = useState<string>('')
     const [address, setAddress] = useState<string>('')
-    const [descriotion, setDescriotion] = useState<string>('')
+    const [description, setDescription] = useState<string>('')
 
     const [is_university, setIsUniversity] = useState<boolean>(false);
     const [is_teacher, setIsTeacher] = useState<boolean>(false);
@@ -33,37 +32,28 @@ export default function SignUp() {
         }
 
         const rest = await auth.register(email, password)
-        console.log(rest);
+
+        if(is_university) {
+            await addDoc(collection(db, 'universities'), {
+                description: description,
+                direccion: address,
+                nombre: nameInstitution,
+                pais: country,
+                is_university: is_university,
+                usr_id: rest.user.uid,
+            });
+        } else if(is_teacher) {
+            await addDoc(collection(db, 'teachers'), {
+                is_teacher: is_teacher,
+                usr_id: rest.user.uid,
+            });
+        } else if(is_student) {
+            await addDoc(collection(db, 'students'), {
+                is_student: is_student,
+                usr_id: rest.user.uid,
+            });
+        }
     }
-
-    // const sendPost = async () => {
-    //     if (loading) return;
-    //     setLoading(true);
-
-    //     const docRef = await addDoc(collection(db, 'posts'), {
-    //         id: user?.uid,
-    //         text: input,
-    //         userImg: user?.photoURL,
-    //         timestamp: serverTimestamp(),
-    //         email: user?.email,
-    //         username: user?.email?.split('@')[0],
-    //     });
-
-    //     const imageRef = ref(storage, `posts/${docRef.id}/image`);
-
-    //     if (selectedFile) {
-    //         await uploadString(imageRef, selectedFile, 'data_url').then(async () => {
-    //             const downloadURL = await getDownloadURL(imageRef);
-    //             await updateDoc(doc(db, 'posts', docRef.id), {
-    //                 image: downloadURL,
-    //             });
-    //         });
-    //     }
-
-    //     setInput('');
-    //     setSelectedFile(null);
-    //     setLoading(false);
-    // };
 
     const handleLoginGoogle = (e: React.MouseEvent) => {
         e.preventDefault()
@@ -102,7 +92,7 @@ export default function SignUp() {
                                 setNameInstitution={setNameInstitution}
                                 setCountry={setCountry}
                                 setAddress={setAddress}
-                                setDescriotion={setDescriotion}
+                                setDescriotion={setDescription}
                                 setIsUniversity={setIsUniversity}
                                 setIsTeacher={setIsTeacher}
                                 setIsStudent={setIsStudent}
@@ -137,7 +127,6 @@ export default function SignUp() {
                 </div>
             </div>
             <FooterEnd />
-
         </>
     );
 }

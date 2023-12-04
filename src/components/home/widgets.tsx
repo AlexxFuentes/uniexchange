@@ -1,9 +1,10 @@
 'use client'
 import { SearchIcon } from '@heroicons/react/outline'
 import { useState } from 'react'
-import News from './news';
-import Publicity from './publicity';
-import Users from './users';
+import News from './news'
+import Publicity from './publicity'
+import Users from './users'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export default function Widgets() {
     const [articleNum, setArticleNum] = useState(2);
@@ -41,7 +42,7 @@ export default function Widgets() {
     ]
 
     return (
-        <div className='hidden xl:w-full lg:inline px-5 space-y-5 h-screen overflow-y-auto scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin'>
+        <div className='hidden xl:w-full lg:inline px-5 space-y-5 h-screen pb-7 overflow-y-auto scrollbar-thumb-paste scrollbar-track-silverSand scrollbar-thin'>
             <div className='w-[90%] xl:w-[75%] sticky top-0 py-1.5 z-50'>
                 <div className='flex items-center p-3 rounded-full bg-white relative'>
                     <SearchIcon className='h-5 z-50 text-arsenic' />
@@ -56,11 +57,21 @@ export default function Widgets() {
             <div className='space-y-3 text-center bg-white shadow-2xl rounded-xl pt-2 w-[90%] xl:w-[75%]'>
                 <h4 className='font-bold text-xl px-4 text-arsenic'>Facultades</h4>
 
-                {
-                    newsResult.slice(0, articleNum).map((news) => (
-                        <News key={news.newTitle} news={news} />
-                    ))
-                }
+                <AnimatePresence>
+                    {
+                        newsResult.slice(0, articleNum).map((news) => (
+                            <motion.div
+                                key={news.newTitle}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1 }}
+                            >
+                                <News key={news.newTitle} news={news} />
+                            </motion.div>
+                        ))
+                    }
+                </AnimatePresence>
 
                 <button className='text-arsenic pl-4 pb-3 hover:text-mySin'
                     onClick={() => setArticleNum(articleNum + 2)}
@@ -72,11 +83,21 @@ export default function Widgets() {
             <div className='space-y-3 text-center bg-white shadow-2xl rounded-xl pt-2 w-[90%] xl:w-[75%]'>
                 <h4 className='font-bold text-xl px-4 text-arsenic'>Publicidad</h4>
 
-                {
-                    publicity.slice(0, publicityNum).map((publicity) => (
-                        <Publicity key={publicity.publicityTitle} publicity={publicity} />
-                    ))
-                }
+                <AnimatePresence>
+                    {
+                        publicity.slice(0, publicityNum).map((publicity) => (
+                            <motion.div
+                                key={publicity.publicityTitle}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1 }}
+                            >
+                                <Publicity key={publicity.publicityTitle} publicity={publicity} />
+                            </motion.div>
+                        ))
+                    }
+                </AnimatePresence>
 
                 <button className='text-arsenic pl-4 pb-3 hover:text-mySin'
                     onClick={() => setPublicityNum(publicityNum + 2)}
@@ -85,8 +106,7 @@ export default function Widgets() {
                 </button>
             </div>
 
-            {/* <div className='sticky top-16 text-center text-silverSand space-y-3 bg-white shadow-2xl pt-2 rounded-xl w-[90%] xl:w-[75%]'> */}
-            <div className='sticky top-16 text-center text-silverSand space-y-3 bg-white shadow-2xl py-2 rounded-xl w-[90%] xl:w-[75%]'>
+            <div className=' top-16 text-center text-silverSand space-y-3 bg-white shadow-2xl py-2 rounded-xl w-[90%] xl:w-[75%]'>
                 <h4 className='font-bold text-xl px-4 text-arsenic'>Usuarios</h4>
 
                 {
