@@ -14,7 +14,7 @@ import SidebarMenuItem from "./sidebar-menu-item";
 import { useAuth } from "@/context/auth-context";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import React from "react";
+import React, { use } from "react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useEffect } from "react";

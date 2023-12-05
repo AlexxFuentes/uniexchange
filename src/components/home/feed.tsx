@@ -4,9 +4,11 @@ import Post from './post'
 import Input from './input'
 import { useEffect, useState } from 'react'
 import { db } from '@/config/firebase.config'
+import { useAuth } from '@/context/auth-context'
 
 export default function Feed() {
 
+    const { user } = useAuth()
     const [posts, setPosts] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
 
     useEffect(() => {
@@ -29,7 +31,7 @@ export default function Feed() {
 
             <Input />
 
-            <div className='h-[calc(100vh-200px)] max-w-2xl scrollbar-thumb-paste overflow-y-auto scrollbar-track-malibu scrollbar-thin text-sm xl:text-base'>
+            <div className={`${user ? 'h-[calc(100vh-200px)]' : 'h-[calc(100vh-55px)]'} max-w-2xl scrollbar-thumb-paste overflow-y-auto scrollbar-track-malibu scrollbar-thin text-sm xl:text-base`}>
                 {
                     posts.map((post) => (<Post key={post.id} post={post} id={post.id} />))
                 }

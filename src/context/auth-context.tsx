@@ -89,6 +89,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 console.log("no hay usuario");
             } else {
                 const { displayName, email, photoURL, uid, providerId } = currentuser as User;
+                console.log(displayName, email, photoURL, uid, providerId,);
                 setUser({ displayName: displayName || '', email: email || '', photoURL: photoURL || '', uid, providerId });
 
                 Promise.all([findTeacher(uid), findUniversity(uid), findStudent(uid)]).then((values) => {
@@ -123,7 +124,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const login = async (email: string, password: string) => {
         try {
             const resp = await signInWithEmailAndPassword(auth, email, password)
-            // console.log(resp);
             // router.push('/home')     
             return resp
         } catch (error) {
