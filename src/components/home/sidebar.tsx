@@ -22,16 +22,20 @@ import { useEffect } from "react";
 export default function Sidebar() {
     const pathname = usePathname();
     const router = useRouter();
-    const { user, logout, login } = useAuth();
+    const { user, logout, logoutGoogle, login } = useAuth();
+    const [showGif, setShowGif] = useState(true);
 
     const handleLogout = (e: React.MouseEvent) => {
         e.preventDefault();
-        logout();
-        router.push("/");
-    };
 
-    /* Detener animacion del git (logo) */
-    const [showGif, setShowGif] = useState(true);
+        if (user?.providerId === "google.com") {
+            logoutGoogle();
+            router.push("/");
+        } else {
+            logout();
+            router.push("/");
+        }
+    };
 
     useEffect(() => {
         // Ocultar el GIF después de 5 segundos (5000 ms)
@@ -46,8 +50,6 @@ export default function Sidebar() {
     return (
 
         <div className="hidden sm:flex flex-col p-2 xl:items-start h-screen xl:ml-10">
-            {/* hidden sm:flex flex-col p-2 xl:items-start h-screen xl:ml-10 */}
-            {/* fixed */}
             <div className="border-b-[1px] border-b-silverSand h-[50px] flex items-center justify-center ">
                 {showGif ? (
                     <Image
@@ -56,6 +58,7 @@ export default function Sidebar() {
                         height={15}
                         alt="Logo de la web"
                         className="mb-2 mx-auto hidden xl:block"
+                        priority
                     />
                 ) : (
                     <Image
@@ -63,7 +66,8 @@ export default function Sidebar() {
                         width={200}
                         height={15}
                         alt="logo img"
-                        className=" mb-2 mx-auto hidden xl:block"
+                        className="mb-2 mx-auto hidden xl:block w-auto"
+                        priority
                     />
                 )}
                 <Image
@@ -71,7 +75,8 @@ export default function Sidebar() {
                     width={40}
                     height={15}
                     alt="logo img"
-                    className=" mb-2 mx-auto xl:hidden"
+                    className="mb-2 mx-auto xl:hidden w-auto"
+                    priority
                 />
             </div>
 
@@ -108,20 +113,15 @@ export default function Sidebar() {
             </div>
 
             {user ? (
-                <>
-                    {/* <button className="buttonOrange rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">
-            Post
-          </button> */}
-                    <div className=" w-full hover:hoverUniversity text-arsenic flex items-center xl:justify-start mt-auto border-t-[1px] border-t-silverSand ">
-                        <button
-                            onClick={handleLogout}
-                            className="flex justify-center items-center "
-                        >
-                            <LogoutIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
-                            <span className="hidden xl:inline xl:text-sm 2xl:text-lg">Salir</span>
-                        </button>
-                    </div>
-                </>
+                <div className="w-full hover:hoverUniversity text-arsenic flex items-center xl:justify-start mt-auto border-t-[1px] border-t-silverSand ">
+                    <button
+                        onClick={handleLogout}
+                        className="flex justify-center items-center "
+                    >
+                        <LogoutIcon className="h-6 w-6 md:h-8 md:w-8 xl:h-6 xl:w-6 xl:mr-1" />
+                        <span className="hidden xl:inline xl:text-sm 2xl:text-lg">Salir</span>
+                    </button>
+                </div>
             ) : (
                 <Link href="/auth/signin">
                     <button className="buttonOrange rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">

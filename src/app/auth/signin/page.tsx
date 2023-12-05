@@ -9,14 +9,10 @@ import FooterEnd from '@/components/landing-page/footer-end'
 export default function SignIn() {
 
     const auth = useAuth()
-
-    // const { displayName }  = auth.user
-    // console.log(displayName ? displayName : 'no hay usuario');
-
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
-    const handleLogin = (e: React.MouseEvent) => {
+    const handleLogin = async (e: React.MouseEvent) => {
         e.preventDefault()
         auth.login(email, password)
     }
