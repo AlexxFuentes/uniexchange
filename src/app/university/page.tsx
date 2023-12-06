@@ -37,8 +37,6 @@ export default function Universities() {
         if (user) {
             findUniversity(user.uid).then((res) => {
                 if (res) {
-                    console.log(res);
-                    console.log(res.data());
                     setUniversity(res);
                 }
             });

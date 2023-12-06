@@ -71,9 +71,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
                                             comment={comment}
                                         />
                                     </motion.div>
-
                                 ))}
-
                             </AnimatePresence>
                         </div>
                     )}

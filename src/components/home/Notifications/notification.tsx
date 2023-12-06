@@ -1,5 +1,4 @@
 import Image from 'next/image'
-
 import Link from "next/link"
 interface NotificationProps {
     notification: {
@@ -12,7 +11,7 @@ export default function Notification({ notification }: NotificationProps) {
     const { title, imgn } = notification;
 
     return (
-        <a target='_blank' className='flex border-b border-silverSand mr-4 ml-4'>
+        <div className='flex border-b border-silverSand mr-4 ml-4'>
             <div className='flex px-4 py-2 space-x-4 items-center transition duration-200'>
                 {imgn && <Image className='rounded-md w-60' width={900} height={70} src={imgn} alt='article-img' priority />}
                 <div className='flex flex-col'>
@@ -24,6 +23,6 @@ export default function Notification({ notification }: NotificationProps) {
                     </Link>
                 </div>
             </div>
-        </a>
+        </div>
     );
 }

@@ -2,6 +2,7 @@ import ModalDocente from "@/components/university/modalDocente";
 import ModalFacultad from "@/components/university/modalFacultad";
 import ModalComecio from "@/components/university/modalComercio";
 import React, { useState } from "react";
+import { useAuth } from "@/context/auth-context";
 
 export default function Box({
     text,
@@ -14,10 +15,11 @@ export default function Box({
     cuantity: number;
     button?: string;
 }) {
+    const { user } = useAuth()
     /* Modal de docentes */
-    const [modalStatesDocente, setModalStatesDocente] = useState(false);
-    const [modalStatesFacultad, setModalStatesFacultad] = useState(false);
-    const [modalStatesComercio, setModalStatesComercio] = useState(false);
+    const [modalStatesDocente, setModalStatesDocente] = useState(false)
+    const [modalStatesFacultad, setModalStatesFacultad] = useState(false)
+    const [modalStatesComercio, setModalStatesComercio] = useState(false)
 
     const handleOpenModal = () => {
         // Abre el modal de Docente
@@ -80,6 +82,7 @@ export default function Box({
                             university="nombreUniversidad"
                             text="¡Asegurate de llenar todos los campos!"
                             handleCloseModalFacultad={() => handleCloseModalFacultad()}
+                            id_user={user?.uid || ""}
                         />
                     )}
 

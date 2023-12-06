@@ -1,8 +1,9 @@
 import { db, storage } from "@/config/firebase.config"
 import { useAuth } from "@/context/auth-context"
 import { EmojiHappyIcon, PhotographIcon, XIcon } from "@heroicons/react/outline"
-import { DocumentData, QueryDocumentSnapshot, addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp, updateDoc } from "firebase/firestore"
+import { DocumentData, QueryDocumentSnapshot, addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from "firebase/firestore"
 import { getDownloadURL, ref, uploadString } from "firebase/storage"
+import { useRouter, usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from "react"
 import Image from 'next/image'
 import { FaPlus } from "react-icons/fa"
@@ -55,42 +56,70 @@ export default function ModalFacultad({
     university,
     text,
     handleCloseModalFacultad,
+    id_user,
 }: {
     university: string;
     text: string;
     handleCloseModalFacultad: () => void;
+    id_user: string;
 }) {
     const { user } = useAuth()
+    const router = useRouter()
+    const pathname = usePathname()
     const [loading, setLoading] = useState<boolean>(false)
-    const [input, setInput] = useState<string>('')
     const [selectedFile, setSelectedFile] = useState<string | null>(null)
     const filePickerRef = useRef<HTMLInputElement>(null)
     const [docentes, setDocentes] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>()
+    const [nombreFacultad, setNombreFacultad] = useState<string>('')
+    const [jefeFacultad, setJefeFacultad] = useState<string>('')
+    const [descripcionFacultad, setDescripcionFacultad] = useState<string>('')
 
-    useEffect(() => {
-        return onSnapshot(
-            query(collection(db, 'teachers'), orderBy('timestamp', 'desc')),
-            (snapshot) => {
-                setDocentes(snapshot.docs)
-            }
+    // renderiza los docentes en un select
+    const renderDocentes = () => {
+        return (
+            <select
+                name="jefe"
+                id="jefe"
+                className="w-full px-8 py-4 rounded-xl font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white "
+                onChange={(e) => setJefeFacultad(e.currentTarget.value)}
+                value={jefeFacultad}
+            >
+                <option>Jefe de la facultad</option>
+                {
+                    docentes?.map((docente, index) => (
+                        <option key={index} value={docente.data().name}>{docente.data().names}</option>
+                    ))
+                }
+            </select>
         )
-    }, [])
+    }
 
-    const sendPost = async () => {
+    const crearFacultad = async () => {
         if (loading) return;
         setLoading(true);
 
-        const docRef = await addDoc(collection(db, 'posts'), {
-            id: user?.uid,
-            text: input,
-            userImg: user?.photoURL,
-            timestamp: serverTimestamp(),
-            email: user?.email,
-            username: user?.email?.split('@')[0],
+        const res = query(collection(db, 'universities'), where("usr_id", "==", id_user));
+
+        const university = await new Promise((resolve) => {
+            const unsub = onSnapshot(res, (snapshot) => {
+                if (snapshot.docs.length > 0) {
+                    resolve(snapshot.docs[0]);
+                } else {
+                    resolve(null);
+                }
+            });
         });
 
-        const imageRef = ref(storage, `posts/${docRef.id}/image`);
+        const docRef = await addDoc(collection(db, 'universities', university?.id, 'facultades'), {
+            name: nombreFacultad,
+            jefe: jefeFacultad,
+            descripcion: descripcionFacultad,
+            timestamp: serverTimestamp(),
+        });
 
+        const imageRef = ref(storage, `universities/facultades/${docRef.id}/image`);
+
+        console.log(selectedFile);
         if (selectedFile) {
             await uploadString(imageRef, selectedFile, 'data_url').then(async () => {
                 const downloadURL = await getDownloadURL(imageRef);
@@ -100,9 +129,17 @@ export default function ModalFacultad({
             });
         }
 
-        setInput('');
+        setDescripcionFacultad('');
+        setNombreFacultad('');
+        setJefeFacultad('');
         setSelectedFile(null);
         setLoading(false);
+
+        if (pathname === `/university/faculties`) {
+            router.refresh();
+        } else {
+            router.push(`university/faculties`);
+        }
     };
 
     const addImageToPost = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,26 +152,14 @@ export default function ModalFacultad({
         };
     };
 
-    const [professorSelection, setProfessorSelection] = useState(
-        professors.map(() => false)
-    );
-
-    const handleSeleccionado = (index: number) => {
-        const newSelection = [...professorSelection];
-        newSelection[index] = !newSelection[index];
-
-        if (!newSelection[index]) {
-            setProfessorSelection(newSelection);
-        } else {
-            /* else if (newSelection[index]) {
-              setProfessorSelection(newSelection);
-            } */
-            const updatedSelection = newSelection.map((_, i) =>
-                i === index ? true : false
-            );
-            setProfessorSelection(updatedSelection);
-        }
-    };
+    useEffect(() => {
+        return onSnapshot(
+            query(collection(db, 'teachers'), orderBy('timestamp', 'desc')),
+            (snapshot) => {
+                setDocentes(snapshot.docs)
+            }
+        )
+    }, [])
 
     return (
         <div className={`fixed inset-0 z-30 w-screen overflow-y-auto bg-arsenic/40 transition-opacity max-h-screen`}>
@@ -164,7 +189,6 @@ export default function ModalFacultad({
                                                     <div className='flex'>
                                                         <div className='' onClick={() => filePickerRef?.current?.click()}>
                                                             <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-64 h-64 border-2 border-arsenic border-dashed rounded-lg cursor-pointer bg-blackWhite dark:hover:bg-silverSand dark:bg-blackWhite hover:bg-silverSand dark:border-arsenic dark:hover:border-arsenic">
-
                                                                 <FaPlus className="w-12 h-12 text-mySin" />
                                                                 <input
                                                                     id="dropzone-file"
@@ -200,28 +224,23 @@ export default function ModalFacultad({
                                             className="w-full px-8 py-4 rounded-xl font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white"
                                             type="text"
                                             placeholder="Nombre de la facultad"
+                                            onChange={(e) => setNombreFacultad(e.currentTarget.value)}
                                             required
                                         />
 
-                                        <select
-                                            name="jefe"
-                                            id="jefe"
-                                            className="w-full px-8 py-4 rounded-xl font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white "
-                                        >
-                                            <option value="">Jefe de la facultad</option>
-                                            <option value="">asdasdasdas</option>
-                                        </select>
+                                        {renderDocentes()}
 
                                         <textarea
                                             className="w-full px-8 py-4 rounded-xl font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white "
                                             placeholder="Descripcion"
+                                            onChange={(e) => setDescripcionFacultad(e.currentTarget.value)}
                                             rows={5}
                                             required
                                         />
 
                                         <button
-                                            onClick={sendPost}
-                                            disabled={!input.trim()}
+                                            onClick={crearFacultad}
+                                            // disabled={!input.trim()}
                                             type="submit" className=" buttonBlack"
                                         >
                                             Crear facultad

@@ -136,7 +136,7 @@ export default function Sidebar() {
                                     className=" h-12 w-12 rounded-full xl:mr-2"
                                     width={12}
                                     height={12}
-                                    src={profileUrl}
+                                    src={profileUrl || "/avatar.svg"}
                                     alt="profile img"
                                 />
                                 <div className="leading-5 hidden xl:inline truncate w-full ">
@@ -156,7 +156,7 @@ export default function Sidebar() {
                 <div className="flex justify-between flex-col h-full">
                     <div className="flex py-4 gap-3 flex-col border-b-[1px] border-b-silverSand">
                         {links.map((link, index) => (
-                            <Link href={link.link} key={index}>
+                            <Link href={(link.link === "/university/faculties" ? `${link.link}/${user?.uid}` : link.link) } key={index}>
                                 <li className={`${pathname === link.link ? "hoverUniversity group" : ""} hover:hoverUniversity flex justify-between relative `}
                                 /*                   onClick={() => {
                                   activateElement("link", index);
@@ -166,9 +166,7 @@ export default function Sidebar() {
                                         <div className="">{iconComponents[link.icon]}</div>
                                         <div className=" hidden xl:block">{link.name}</div>
                                     </div>
-                                    <div
-                                        className={`${pathname === link.link ? "opacity-100" : "opacity-0"
-                                            } hoverUniversityLine group-hover:opacity-100 transition-opacity duration-300`}
+                                    <div className={`${pathname === link.link ? "opacity-100" : "opacity-0"} hoverUniversityLine group-hover:opacity-100 transition-opacity duration-300`}
                                     ></div>
                                 </li>
                             </Link>

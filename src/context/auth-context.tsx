@@ -1,11 +1,7 @@
 'use client'
 import { auth, db } from '../config/firebase.config'
 import { createContext, useContext, useEffect, useState } from 'react'
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
-    signOut, onAuthStateChanged
-} from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
 import { useRouter } from 'next/navigation'
 import { onSnapshot, collection, query, where } from 'firebase/firestore'
 

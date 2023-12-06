@@ -4,19 +4,31 @@ import { useState } from 'react'
 import Notification from './notification';
 
 const NotificationsResult = [
-    { title: 'Nombre de Facultad 1', imgn: '/img_prueba.png' },
-    { title: 'Nombre de Facultad 2', imgn: '/img_prueba.png' },
-    { title: 'Nombre de Facultad 3', imgn: '/img_prueba.png' },
-    { title: 'Nombre de Facultad 4', imgn: '/img_prueba.png' },
-    { title: 'Nombre de Facultad 5', imgn: '/img_prueba.png' },
-    { title: 'Nombre de Facultad 6', imgn: '/img_prueba.png' },
-    { title: 'Nombre de Facultad 7', imgn: '/img_prueba.png' },
-    { title: 'Nombre de Facultad 8', imgn: '/img_prueba.png' },
+    { title: 'Notificación 1', imgn: '/img_prueba.png' },
+    { title: 'Notificación 2', imgn: '/img_prueba.png' },
+    { title: 'Notificación 3', imgn: '/img_prueba.png' },
+    { title: 'Notificación 4', imgn: '/img_prueba.png' },
+    { title: 'Notificación 5', imgn: '/img_prueba.png' },
+    { title: 'Notificación 6', imgn: '/img_prueba.png' },
+    { title: 'Notificación 7', imgn: '/img_prueba.png' },
+    { title: 'Notificación 8', imgn: '/img_prueba.png' },
+    { title: 'Notificación 9', imgn: '/img_prueba.png' },
+    { title: 'Notificación 10', imgn: '/img_prueba.png' },
+    { title: 'Notificación 11', imgn: '/img_prueba.png' },
+    { title: 'Notificación 12', imgn: '/img_prueba.png' },
+    { title: 'Notificación 13', imgn: '/img_prueba.png' },
+    { title: 'Notificación 14', imgn: '/img_prueba.png' },
+    { title: 'Notificación 15', imgn: '/img_prueba.png' },
+    { title: 'Notificación 16', imgn: '/img_prueba.png' },
+    { title: 'Notificación 17', imgn: '/img_prueba.png' },
+    { title: 'Notificación 18', imgn: '/img_prueba.png' },
+    { title: 'Notificación 19', imgn: '/img_prueba.png' },
+    { title: 'Notificación 20', imgn: '/img_prueba.png' },
 ]
 
 export default function Notifications() {
 
-    const [articleNum, setArticleNum] = useState(2);
+    const [articleNum, setArticleNum] = useState(3);
 
     return (
         <div className='border-l border-r border-silverSand xl:min-w-[600px] flex-grow max-w-2xl h-screen overflow-y-auto scrollbar-thumb-paste scrollbar-thin text-sm xl:text-base'>

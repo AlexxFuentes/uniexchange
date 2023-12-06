@@ -3,10 +3,12 @@ import { AcademicCapIcon } from "@heroicons/react/outline";
 import Header from "@/components/university/header";
 import Box from "@/components/university/box";
 import { FaTrash } from "react-icons/fa";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ModalEliminar from "@/components/university/modalEliminar";
 import ModalJefe from "@/components/university/modalJefe";
 import Image from 'next/image'
+import { DocumentData, QueryDocumentSnapshot, collection, onSnapshot, orderBy, query, where } from "firebase/firestore";
+import { db } from "@/config/firebase.config";
 
 interface Facult {
     id: number;
@@ -47,7 +49,8 @@ const facultades: Facult[] = [
     },
 ];
 
-export default function Faculties() {
+export default function Faculties({ params }: { params: { id: string } }) {
+    const { id } = params
 
     const [modalStates, setModalStates] = useState<boolean[]>(
         Array(facultades.length).fill(false)
@@ -86,6 +89,38 @@ export default function Faculties() {
         setModalStatesJefe(updatedStates);
     };
 
+    const [listFacultades, setListFacultades] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
+
+    const getIdUniversity = async () => {
+        const res = query(collection(db, 'universities'), where("usr_id", "==", id));
+
+        const universityDoc = await new Promise((resolve) => {
+            const unsub = onSnapshot(res, (snapshot) => {
+                if (snapshot.docs.length > 0) {
+                    resolve(snapshot.docs[0]);
+                } else {
+                    resolve(null);
+                }
+            });
+        });
+
+        if (universityDoc) {
+            const facultadesCollection = collection(db, 'universities', universityDoc.id, 'facultades');
+            onSnapshot(
+                query(facultadesCollection, orderBy('timestamp', 'desc')),
+                (snapshot) => {
+                    setListFacultades(snapshot.docs)
+                }
+            );
+        }
+    };
+
+
+    // get data from firestore
+    useEffect(() => {
+        getIdUniversity();
+    }, []);
+
     return (
         <div className=" px-1 sm:p-1 sm:px-2 xl:px-5 xl:py-2 w-[90%] xl:w-[87%] min-h-screen m-0 text-arsenic">
             <Header head="Facultades" Icon={AcademicCapIcon} nameUniversity="UNAH" />
@@ -99,29 +134,21 @@ export default function Faculties() {
                 />
 
                 <section className="boxBig flex-1 flex flex-col">
-                    {facultades.map((facultad, index) => (
-                        <div
-                            className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center"
-                            key={facultad.id}
-                        >
+                    {listFacultades.map((facultad, index) => (
+                        <div className="mx-2 border-b-[1px] border-b-silverSand p-5 sm:flex justify-between items-center" key={facultad.id} >
                             <div className="sm:flex justify-center items-center gap-4 mr-2">
-                                {/* <img
-                  src={`${facultad.image}`}
-                  alt="logo img"
-                  className="rounded-lg w-full max-w-[10rem] md:max-w-[15rem] xl:max-w-xs m-auto "
-                /> */}
 
                                 <Image className='rounded-lg w-full max-w-[10rem] md:max-w-[15rem] xl:max-w-xs m-auto'
-                                    src={`${facultad.image}`} alt={'logo img'}
+                                    src={`${facultad.data().urlImg || "/img_prueba.png"}`} alt={'logo img'}
                                     width={900} height={100}
                                 />
 
                                 <div className="flex text-center sm:text-left flex-col gap-1 my-2 sm:my-0">
                                     <h1 className="font-bold text-base md:text-lg xl:text-xl">
-                                        {facultad.nombre}
+                                        {facultad.data().name}
                                     </h1>
-                                    <span>jefe: {facultad.jefe}</span>
-                                    <span>Descripcion: {facultad.descripcion}</span>
+                                    <span>jefe: {facultad.data().jefe}</span>
+                                    <span>Descripción: {facultad.data().descripcion}</span>
                                 </div>
                             </div>
                             <div className="flex flex-col justify-center items-center gap-1">
@@ -141,7 +168,7 @@ export default function Faculties() {
                                 {/* Modales */}
                                 {modalStates[index] && (
                                     <ModalEliminar
-                                        shop={facultad.nombre}
+                                        shop={facultad.data().name}
                                         text="¡Esta facultad se eliminara de forma permanente!"
                                         handleCloseModal={() => handleCloseModal(index)}
                                     />
@@ -149,7 +176,7 @@ export default function Faculties() {
 
                                 {modalStatesJefe[index] && (
                                     <ModalJefe
-                                        facult={facultad.nombre}
+                                        facult={facultad.data().name}
                                         text="¡Este docente administrara la facultad!"
                                         handleCloseModalJefe={() => handleCloseModalJefe(index)}
                                     />
