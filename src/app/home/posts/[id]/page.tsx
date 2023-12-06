@@ -11,10 +11,10 @@ import { DocumentData, QueryDocumentSnapshot, collection, doc, getDoc, onSnapsho
 import { AnimatePresence, motion } from "framer-motion"
 
 export default function PostPage({ params }: { params: { id: string } }) {
-    const router = useRouter()
     const { id } = params
-    const [post, setPost] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>>();
-    const [comments, setComments] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([]);
+    const router = useRouter()
+    const [post, setPost] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>>()
+    const [comments, setComments] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
 
     // get the post data
     useEffect(() => {

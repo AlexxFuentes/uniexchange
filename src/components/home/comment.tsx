@@ -133,7 +133,6 @@ export default function Comment({ comment, commentId, originalPostId }: CommentP
                             <span
                                 className={`${hasLiked && 'text-red-600'} text-sm select-none`}
                             >
-                                {' '}
                                 {likes.length}
                             </span>
                         )}

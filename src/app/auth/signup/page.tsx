@@ -15,6 +15,7 @@ export default function SignUp() {
     const [password, setPassword] = useState<string>('')
     const [passConfirm, setPassConfirm] = useState<string>('')
     const [nameInstitution, setNameInstitution] = useState<string>('')
+    const [names, setNames] = useState<string>('')
     const [country, setCountry] = useState<string>('')
     const [address, setAddress] = useState<string>('')
     const [description, setDescription] = useState<string>('')
@@ -38,6 +39,7 @@ export default function SignUp() {
                 description: description,
                 direccion: address,
                 nombre: nameInstitution,
+                correo: email,
                 pais: country,
                 is_university: is_university,
                 timestamp: serverTimestamp(),
@@ -45,15 +47,23 @@ export default function SignUp() {
             });
         } else if(is_teacher) {
             await addDoc(collection(db, 'teachers'), {
+                names: names,
+                pais: country,
+                direccion: address,
+                correo: email,
                 is_teacher: is_teacher,
                 timestamp: serverTimestamp(),
                 usr_id: rest.user.uid,
             });
         } else if(is_student) {
             await addDoc(collection(db, 'students'), {
+                names: names,
+                pais: country,
+                direccion: address,
+                correo: email,
                 is_student: is_student,
                 timestamp: serverTimestamp(),
-                usr_id: rest.user.uid,
+                usr_id: rest?.user.uid,
             });
         }
     }
@@ -99,6 +109,7 @@ export default function SignUp() {
                                 setIsUniversity={setIsUniversity}
                                 setIsTeacher={setIsTeacher}
                                 setIsStudent={setIsStudent}
+                                setNames={setNames}
                                 is_student={is_student}
                                 is_teacher={is_teacher}
                                 is_university={is_university}

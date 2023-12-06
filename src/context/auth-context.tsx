@@ -32,7 +32,10 @@ interface User {
     email: string
     photoURL: string,
     uid: string,
-    providerId?: string
+    providerId?: string,
+    is_estudiante?: boolean,
+    is_profesor?: boolean,
+    is_universidad?: boolean,
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -89,21 +92,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 console.log("no hay usuario");
             } else {
                 const { displayName, email, photoURL, uid, providerId } = currentuser as User;
-                console.log(displayName, email, photoURL, uid, providerId,);
                 setUser({ displayName: displayName || '', email: email || '', photoURL: photoURL || '', uid, providerId });
 
                 Promise.all([findTeacher(uid), findUniversity(uid), findStudent(uid)]).then((values) => {
                     if (values[0]) {
-                        console.log("es profesor");
+                        setUser({ displayName: displayName || '', email: email || '', photoURL: photoURL || '', uid, providerId, is_profesor: true });
                         router.push('/home')
                     } else if (values[1]) {
-                        console.log("es universidad");
+                        setUser({ displayName: displayName || '', email: email || '', photoURL: photoURL || '', uid, providerId, is_universidad: true });
                         router.push('/university')
                     } else if (values[2]) {
-                        console.log("es estudiante");
+                        setUser({ displayName: displayName || '', email: email || '', photoURL: photoURL || '', uid, providerId, is_estudiante: true });
                         router.push('/home')
-                    } else {
-                        console.log("no es nada");
                     }
                 });
             }

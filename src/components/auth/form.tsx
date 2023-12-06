@@ -15,6 +15,7 @@ interface FormProps {
     setIsUniversity?: (e: boolean) => void,
     setIsTeacher?: (e: boolean) => void,
     setIsStudent?: (e: boolean) => void,
+    setNames?: (e: string) => void,
     is_university?: boolean,
     is_teacher?: boolean,
     is_student?: boolean,
@@ -35,6 +36,7 @@ export function Form({
     setIsUniversity,
     setIsTeacher,
     setIsStudent,
+    setNames,
     is_university,
     is_teacher,
     is_student,
@@ -163,6 +165,19 @@ export function Form({
                         </div>
 
                         {
+                            (is_teacher || is_student) && (
+                                <input
+                                    className="w-full px-8 py-4 mb-3 rounded-lg font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white"
+                                    type="text"
+                                    placeholder="Nombre"
+                                    onChange={(e) => setNames && setNames(e.target.value)}
+                                    ref={nameInstitutionRef}
+                                    required
+                                />
+                            )
+                        }
+
+                        {
                             is_university && (
                                 <>
                                     <input
@@ -173,6 +188,21 @@ export function Form({
                                         ref={nameInstitutionRef}
                                         required
                                     />
+                                    <input
+                                        className="w-full px-8 py-4 mb-3 rounded-lg font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white"
+                                        type="text"
+                                        placeholder="Descripción"
+                                        onChange={(e) => setDescriotion && setDescriotion(e.target.value)}
+                                        ref={descriotionRef}
+                                        required
+                                    />
+                                </>
+                            )
+                        }
+
+                        {
+                            (is_teacher || is_student || is_university) && (
+                                <>
                                     <input
                                         className="w-full px-8 py-4 mb-3 rounded-lg font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white"
                                         type="text"
@@ -189,18 +219,9 @@ export function Form({
                                         ref={addressRef}
                                         required
                                     />
-
-                                    <input
-                                        className="w-full px-8 py-4 mb-3 rounded-lg font-medium bg-transparent border border-arsenic placeholder-silverSand text-sm focus:outline-none focus:border-mySin focus:bg-white"
-                                        type="text"
-                                        placeholder="Descripción"
-                                        onChange={(e) => setDescriotion && setDescriotion(e.target.value)}
-                                        ref={descriotionRef}
-                                        required
-                                    />
                                 </>
                             )
-                        }
+                        }                        
                     </>
                 )
             }

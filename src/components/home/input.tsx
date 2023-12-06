@@ -98,10 +98,7 @@ export default function Input() {
                                 !loading && (
                                     <>
                                         <div className='flex'>
-                                            <div
-                                                className=''
-                                                onClick={() => filePickerRef?.current?.click()}
-                                            >
+                                            <div  className='' onClick={() => filePickerRef?.current?.click()}>
                                                 <PhotographIcon className='h-10 w-10 hoverEffect p-2 text-malibu hover:bg-arsenic' />
                                                 <input
                                                     type='file'
