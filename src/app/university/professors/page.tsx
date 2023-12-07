@@ -34,22 +34,6 @@ export default function Professors() {
       calificacion: 3.2,
       cantidadCalificaciones: 5,
     },
-    {
-      id: 3,
-      image: "../avatar.svg",
-      nombre: "Erick Vladimir",
-      descripcion: "Docente de ingenieria.",
-      calificacion: 2.5,
-      cantidadCalificaciones: 5,
-    },
-    {
-      id: 4,
-      image: "../avatar.svg",
-      nombre: "Erick Vladimir",
-      descripcion: "Docente de ingenieria.",
-      calificacion: 4.5,
-      cantidadCalificaciones: 5,
-    },
   ];
 
   const [modalStates, setModalStates] = useState<boolean[]>(

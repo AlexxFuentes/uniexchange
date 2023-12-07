@@ -20,7 +20,7 @@ interface Professor {
 const professors: Professor[] = [
     {
         id: 1,
-        image: "../avatar.svg",
+        image: "/avatar.svg",
         nombre: "Erick Vladimir",
         descripcion: "Docente de ingenieria.",
         calificacion: 4.5,
@@ -28,7 +28,7 @@ const professors: Professor[] = [
     },
     {
         id: 2,
-        image: "../avatar.svg",
+        image: "/avatar.svg",
         nombre: "Alex Alfredo",
         descripcion: "Docente de ingenieria.",
         calificacion: 3.2,
@@ -36,7 +36,7 @@ const professors: Professor[] = [
     },
     {
         id: 3,
-        image: "../avatar.svg",
+        image: "/avatar.svg",
         nombre: "Erick Vladimir",
         descripcion: "Docente de ingenieria.",
         calificacion: 2.5,
@@ -44,7 +44,7 @@ const professors: Professor[] = [
     },
     {
         id: 4,
-        image: "../avatar.svg",
+        image: "/avatar.svg",
         nombre: "Erick Vladimir",
         descripcion: "Docente de ingenieria.",
         calificacion: 4.5,
@@ -171,7 +171,7 @@ export default function ModalFacultad({
                                 <div className="sm:flex sm:items-center p-2  text-center">
                                     <div className="w-full px-3 p-3 flex justify-center items-center flex-col gap-2">
                                         <h1 className="font-bold text-base md:text-lg xl:text-xl">
-                                            Nueva facultad de {university}
+                                            Nueva facultad de {/* {university} */} UNAH
                                         </h1>
                                         <div className="">
                                             <p className="">{text}</p>

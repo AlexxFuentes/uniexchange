@@ -20,34 +20,10 @@ export default function Shops() {
   const shops: Shop[] = [
     {
       id: 1,
-      image: "/img_prueba.png",
+      image: "/baleadas.png",
       nombre: "Baleadas Unah",
       propietario: "Yhonny Aplicano",
-      descripcion: "Ricas valeadas",
-      ubicacion: "Fuera de la UNAH frente al porton principal",
-    },
-    {
-      id: 2,
-      image: "/img_prueba.png",
-      nombre: "Ingenieria en sistemas",
-      propietario: "Yhonny Aplicano",
-      descripcion: "Reyes de ingenieria.",
-      ubicacion: "Fuera de la UNAH frente al porton principal",
-    },
-    {
-      id: 3,
-      image: "/img_prueba.png",
-      nombre: "Ingenieria en sistemas",
-      propietario: "Yhonny Aplicano",
-      descripcion: "Reyes de ingenieria.",
-      ubicacion: "Fuera de la UNAH frente al porton principal",
-    },
-    {
-      id: 4,
-      image: "/img_prueba.png",
-      nombre: "Ingenieria industrial",
-      propietario: "Yhonny Aplicano",
-      descripcion: "ingenieria.",
+      descripcion: "Ricas baleadas.",
       ubicacion: "Fuera de la UNAH frente al porton principal",
     },
   ];

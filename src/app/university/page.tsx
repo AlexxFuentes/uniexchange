@@ -110,10 +110,10 @@ export default function Universities() {
                             Datos Oficiales
                         </h1>
                         <div className="grid gap-5 grid-cols-2 sm:grid-cols-4">
-                            <Data cuantity="25" Icon={AcademicCapIcon} name="Facultades" />
-                            <Data cuantity="75" Icon={FaChalkboardTeacher} name="Docentes" />
-                            <Data cuantity="1,500" Icon={PiStudentBold} name="Estudiantes" />
-                            <Data cuantity="18" Icon={AiFillShop} name="Comercios" />
+                            <Data cuantity="2" Icon={AcademicCapIcon} name="Facultades" />
+                            <Data cuantity="2" Icon={FaChalkboardTeacher} name="Docentes" />
+                            <Data cuantity="4" Icon={PiStudentBold} name="Estudiantes" />
+                            <Data cuantity="1" Icon={AiFillShop} name="Comercios" />
                         </div>
                         <Link href="/university/home">
                             <button

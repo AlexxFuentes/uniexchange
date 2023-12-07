@@ -5,15 +5,15 @@ import Link from "next/link"
 const facultadesData = [
     {
         id: 1,
-        description: ['Nombre facultad', 'Nombre Universidad', 'Jefe: Yhonny Aplicano.'],
-        img: '/img_prueba.png',
+        description: ['Ingenieria en sistemas', 'UNAH', 'Jefe: Emilson Acosta.'],
+        img: '/LogoSistemas.jpg',
     },
     {
         id: 2,
-        description: ['Nombre facultad', 'Nombre Universidad', 'Jefe: Yhonny Aplicano.'],
-        img: '/img_prueba.png',
+        description: ['Ciencias Medicas', 'UNAH', 'Jefe: Yhonny Aplicano.'],
+        img: '/LogoMedicina.png',
     },
-    {
+    /* {
         id: 3,
         description: ['Nombre facultad', 'Nombre Universidad', 'Jefe: Yhonny Aplicano.'],
         img: '/img_prueba.png',
@@ -32,7 +32,7 @@ const facultadesData = [
         id: 6,
         description: ['Nombre facultad', 'Nombre Universidad', 'Jefe: Yhonny Aplicano.'],
         img: '/img_prueba.png',
-    },
+    }, */
 ];
 
 export default function Faculties() {

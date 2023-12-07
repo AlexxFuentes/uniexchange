@@ -147,9 +147,7 @@ export default function Professors() {
 
             <section>
                 <InputCalifications />
-                {
-                    posts.map((post) => (<Comentarios key={post.id} post={post} />))
-                }
+                <Comentarios  />
             </section>
         </div>
     )

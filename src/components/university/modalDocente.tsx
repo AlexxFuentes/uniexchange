@@ -37,22 +37,6 @@ export default function ModalDocente({
       calificacion: 3.2,
       cantidadCalificaciones: 5,
     },
-    {
-      id: 3,
-      image: "../avatar.svg",
-      nombre: "Erick Vladimir",
-      descripcion: "Docente de ingenieria.",
-      calificacion: 2.5,
-      cantidadCalificaciones: 5,
-    },
-    {
-      id: 4,
-      image: "../avatar.svg",
-      nombre: "Erick Vladimir",
-      descripcion: "Docente de ingenieria.",
-      calificacion: 4.5,
-      cantidadCalificaciones: 5,
-    },
   ];
 
   const [professorSelection, setProfessorSelection] = useState(
@@ -92,7 +76,7 @@ export default function ModalDocente({
                 <div className="sm:flex sm:items-center p-2  text-center">
                   <div className="w-full px-3 p-3 flex justify-center items-center flex-col gap-2">
                     <h1 className="font-bold text-base md:text-lg xl:text-xl">
-                      ¿Que docentes forman parte de {university}?
+                      ¿Que docentes forman parte de {/* {university} */} UNAH?
                     </h1>
                     <div className="">
                       <p className="">{text}</p>

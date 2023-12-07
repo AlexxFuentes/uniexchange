@@ -12,33 +12,33 @@ export default function Widgets() {
     const [randomUserNum, setRandomUserNum] = useState(2);
 
     const newsResult = [
-        { newTitle: 'Facultad 1', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: 'http://www.google.com', newImg: '/img_prueba.png' },
-        { newTitle: 'Facultad 2', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: 'http://www.google.com', newImg: '/img_prueba.png' },
-        { newTitle: 'Facultad 3', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: 'http://www.google.com', newImg: '/img_prueba.png' },
-        { newTitle: 'Facultad 4', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: 'http://www.google.com', newImg: '/img_prueba.png' },
-        { newTitle: 'Facultad 5', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: 'http://www.google.com', newImg: '/img_prueba.png' },
-        { newTitle: 'Facultad 6', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: 'http://www.google.com', newImg: '/img_prueba.png' },
-        { newTitle: 'Facultad 7', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: 'http://www.google.com', newImg: '/img_prueba.png' }
+        { newTitle: 'Ingeneria en sistemas', newDescription: 'El olimpo.', newUrl: '/home/faculty', newImg: '/LogoSistemas.jpg' },
+        { newTitle: 'Ciencias medicas', newDescription: 'Medicina', newUrl: '/home/faculty', newImg: '/LogoMedicina.png' },
+      /*   { newTitle: 'Ingeneria en sistemas', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: '/home/faculty', newImg: '/img_prueba.png' },
+        { newTitle: 'Ingeneria en sistemas', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: '/home/faculty', newImg: '/img_prueba.png' },
+        { newTitle: 'Ingeneria en sistemas', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: '/home/faculty', newImg: '/img_prueba.png' },
+        { newTitle: 'Ingeneria en sistemas', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: '/home/faculty', newImg: '/img_prueba.png' },
+        { newTitle: 'Ingeneria en sistemas', newDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', newUrl: '/home/faculty', newImg: '/img_prueba.png' } */
     ]
 
     const randomUsers = [
-        { username: 'username1', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' },
-        { username: 'username2', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' },
-        { username: 'username3', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' },
-        { username: 'username4', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' },
-        { username: 'username5', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' },
+        { username: 'Heryweik', userImg: '/avatar.svg', firtsname: 'Yhonny', lastname: 'Aplicano' },
+        { username: 'OSCAR', userImg: '/avatar.svg', firtsname: 'Oscar', lastname: 'Hernan' },
+        { username: 'Ririchy', userImg: '/avatar.svg', firtsname: 'Ayline', lastname: 'Lopez' },
+        { username: 'Soff', userImg: '/avatar.svg', firtsname: 'Sofy', lastname: 'Rodriguez' },
+        /* { username: 'username5', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' },
         { username: 'username6', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' },
-        { username: 'username7', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' }
+        { username: 'username7', userImg: '/img_prueba.png', firtsname: 'firstname', lastname: 'lastname' } */
     ]
 
     const publicity = [
-        { publicityTitle: 'publicity 1', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: 'http://www.google.com', publicityImg: '/img_prueba.png' },
-        { publicityTitle: 'publicity 2', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: 'http://www.google.com', publicityImg: '/img_prueba.png' },
-        { publicityTitle: 'publicity 3', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: 'http://www.google.com', publicityImg: '/img_prueba.png' },
-        { publicityTitle: 'publicity 4', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: 'http://www.google.com', publicityImg: '/img_prueba.png' },
-        { publicityTitle: 'publicity 5', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: 'http://www.google.com', publicityImg: '/img_prueba.png' },
-        { publicityTitle: 'publicity 6', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: 'http://www.google.com', publicityImg: '/img_prueba.png' },
-        { publicityTitle: 'publicity 7', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: 'http://www.google.com', publicityImg: '/img_prueba.png' }
+        { publicityTitle: 'Baleadas UNAH', publicityDescription: 'Las mejores baleadas de laaaaaaaaaaaaaa universidad.', publicityUrl: '/home/faculty', publicityImg: '/baleadas.png' },
+        /* { publicityTitle: 'publicity 2', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: '/home/faculty', publicityImg: '/img_prueba.png' },
+        { publicityTitle: 'publicity 3', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: '/home/faculty', publicityImg: '/img_prueba.png' },
+        { publicityTitle: 'publicity 4', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: '/home/faculty', publicityImg: '/img_prueba.png' },
+        { publicityTitle: 'publicity 5', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: '/home/faculty', publicityImg: '/img_prueba.png' },
+        { publicityTitle: 'publicity 6', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: '/home/faculty', publicityImg: '/img_prueba.png' },
+        { publicityTitle: 'publicity 7', publicityDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', publicityUrl: '/home/faculty', publicityImg: '/img_prueba.png' } */
     ]
 
     return (

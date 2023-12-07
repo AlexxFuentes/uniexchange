@@ -12,7 +12,7 @@ interface UserProps {
 export default function Users({ user }: UserProps) {
 
     return (
-        <div  key={user.username} className="flex items-center px-4 py-2 cursor-pointer hover:bg-arsenic transition duration-500 ease-out">
+        <div  key={user.username} className="flex items-center px-4 py-2 cursor-pointer hover:bg-arsenic/20 transition duration-500 ease-out">
             <Image className="rounded-full w-10 h-10" width={40} height={40} src={user.userImg} alt="user-img" priority />
             <div className="truncate ml-4 leading-5">
                 <h4 className="font-bold text-arsenic hover:underline hover:text-mySin text-[14px] truncate">

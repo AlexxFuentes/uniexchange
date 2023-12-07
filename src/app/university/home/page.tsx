@@ -37,10 +37,10 @@ export default function Home() {
                 </section>
 
                 <section className="grid gap-5 grid-cols-1 md:grid-cols-2  h-[calc(100%-100px)] mx-3" >
-                    <DataHome cuantity="25" Icon={AcademicCapIcon} name="Facultades" link={`/university/faculties/${user?.uid}`} />
-                    <DataHome cuantity="75" Icon={FaChalkboardTeacher} name="Docentes" link="/university/professors" />
-                    <DataHome cuantity="1,500" Icon={PiStudentBold} name="Estudiantes" link="/university/students" />
-                    <DataHome cuantity="18" Icon={AiFillShop} name="Comercios" link="/university/shops" />
+                    <DataHome cuantity="2" Icon={AcademicCapIcon} name="Facultades" link={`/university/faculties/${user?.uid}`} />
+                    <DataHome cuantity="2" Icon={FaChalkboardTeacher} name="Docentes" link="/university/professors" />
+                    <DataHome cuantity="4" Icon={PiStudentBold} name="Estudiantes" link="/university/students" />
+                    <DataHome cuantity="1" Icon={AiFillShop} name="Comercios" link="/university/shops" />
                 </section>
             </div>
         </div>

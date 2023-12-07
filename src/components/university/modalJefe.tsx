@@ -23,7 +23,7 @@ export default function ModalJefe({
   const professors: Professor[] = [
     {
       id: 1,
-      image: "../avatar.svg",
+      image: "/avatar.svg",
       nombre: "Erick Vladimir",
       descripcion: "Docente de ingenieria.",
       calificacion: 4.5,
@@ -31,26 +31,10 @@ export default function ModalJefe({
     },
     {
       id: 2,
-      image: "../avatar.svg",
+      image: "/avatar.svg",
       nombre: "Alex Alfredo",
       descripcion: "Docente de ingenieria.",
       calificacion: 3.2,
-      cantidadCalificaciones: 5,
-    },
-    {
-      id: 3,
-      image: "../avatar.svg",
-      nombre: "Erick Vladimir",
-      descripcion: "Docente de ingenieria.",
-      calificacion: 2.5,
-      cantidadCalificaciones: 5,
-    },
-    {
-      id: 4,
-      image: "../avatar.svg",
-      nombre: "Erick Vladimir",
-      descripcion: "Docente de ingenieria.",
-      calificacion: 4.5,
       cantidadCalificaciones: 5,
     },
   ];

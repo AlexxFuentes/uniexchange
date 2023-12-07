@@ -139,7 +139,7 @@ export default function Faculties({ params }: { params: { id: string } }) {
                             <div className="sm:flex justify-center items-center gap-4 mr-2">
 
                                 <Image className='rounded-lg w-full max-w-[10rem] md:max-w-[15rem] xl:max-w-xs m-auto'
-                                    src={`${facultad.data().urlImg || "/img_prueba.png"}`} alt={'logo img'}
+                                    src={`${facultad.data().urlImg || "/LogoSistemas.jpg"}`} alt={'logo img'}
                                     width={900} height={100}
                                 />
 

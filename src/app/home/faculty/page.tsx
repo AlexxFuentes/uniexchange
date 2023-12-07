@@ -10,20 +10,11 @@ import Link from "next/link";
 const posts = [
   {
     id: "1",
-    name: "John Doe",
+    name: "Oscar Hernan",
     username: "johndoe",
-    userImg: "./avatar.svg",
+    userImg: "/avatar.svg",
     img: "/img_prueba.png",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl. Sed euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl.",
-    timestamp: "1 hour ago",
-  },
-  {
-    id: "2",
-    name: "John Doe",
-    username: "johndoe",
-    userImg: "./avatar.svg",
-    img: "/img_prueba.png",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl. Sed euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl eu nisl.",
+    text: "Me esta empezando a gustar la calidad de las clases y el nivel que demuestran los ingenieros de la facultad",
     timestamp: "1 hour ago",
   },
 ];
@@ -54,7 +45,7 @@ export default function Faculty() {
           priority
         />
         <Image
-          src="/img_prueba.png"
+          src="/LogoSistemas.jpg"
           className="w-32 h-32 object-cover rounded-full border-4 relative border-white mt-[-40px] ml-[25px]"
           style={{ zIndex: "2" }}
           width={900}
@@ -74,7 +65,7 @@ export default function Faculty() {
                 Universidad Nacional Autónoma de Honduras
               </h1>
               <h2 className="text-lg font-semibold text-gray-700">
-                Nombre Facultad
+                Ingenieria en sistemas
               </h2>
             </div>
           </div>
@@ -93,7 +84,7 @@ export default function Faculty() {
                   whiteSpace: "nowrap",
                 }}
               >
-                340 miembros
+                4 miembros
               </div>
               <div className="flex items-center justify-center mt-4">
                 <button
@@ -115,9 +106,8 @@ export default function Faculty() {
 
           {/* Párrafo */}
           <p className="ml-8">
-            La facultad de ingeniería más conocida como “El Olimpo” de la
-            Universidad XXXXXXXX es una de las principales unidades académicas
-            del país que ha logrado graduar a más de ####### egresados quienes
+            La facultad de ingeniería más conocida como “El Olimpo” de la UNAH es una de las principales unidades académicas
+            del país que ha logrado graduar a más de 5,000 egresados quienes
             han logrado destacar en numerosos proyectos de interés nacional e
             internacional.
           </p>
@@ -195,19 +185,19 @@ export default function Faculty() {
 
                 <div className="flex text-center sm:text-left flex-col gap-1 my-2 sm:my-0">
                   <h1 className="font-bold text-base md:text-lg xl:text-xl inset-0">
-                    q we qwe q
+                  Erick Vladimir
                   </h1>
                   <div className="flex items-center justify-center sm:justify-start">
                     <div className="bg-mySin rounded-full p-2 border-[2px] border-arsenic z-20">
                       <h1 className="font-bold text-base md:text-lg xl:text-xl">
-                        3.3
+                        4.5
                       </h1>
                     </div>
                     <div className="bg-mySin p-2 pl-7 rounded-2xl border-[2px] border-arsenic ml-[-25px] z-10">
-                      <Calification cuantity={3} />
+                      <Calification cuantity={4.5} />
                     </div>
                   </div>
-                  <div>5 calificaciones</div>
+                  <div>4 calificaciones</div>
                 </div>
                 <div className="flex justify-center">
                   <Link href="/home/calificationprofessors">
@@ -218,7 +208,7 @@ export default function Faculty() {
                 </div>
               </div>
 
-              <span>Descripcion: werwer werwer wer w</span>
+              <span>El ingeniero Erick, un gran catedrático que se unió a nosotros en el año 2023 y que lleva una gran trayectoria como profesional con sus proyectos y productos, entre ellos Betty, un producto que viene a generar empleos y a dar soluciones en varios ámbitos. Sus conocimientos vienen a dar un aprendizaje diferente y muy bueno para los estudiantes.</span>
             </div>
           </div>
         </div>

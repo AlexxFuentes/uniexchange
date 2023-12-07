@@ -136,14 +136,14 @@ export default function Sidebar() {
                                     className=" h-12 w-12 rounded-full xl:mr-2"
                                     width={12}
                                     height={12}
-                                    src={profileUrl || "/avatar.svg"}
+                                    src={"/avatar.svg"}
                                     alt="profile img"
                                 />
                                 <div className="leading-5 hidden xl:inline truncate w-full ">
                                     <h4 className="font-bold 2xl:text-xl whitespace-nowrap w-3">
-                                        Nombre Universidad
+                                    Universidad Nacional Autónoma de Honduras
                                     </h4>
-                                    <p className="text-xs 2xl:text-base">@correo</p>
+                                    <p className="text-xs 2xl:text-base">@unah</p>
                                 </div>
                                 <DotsHorizontalIcon className="h-5 hidden xl:block" />
 
